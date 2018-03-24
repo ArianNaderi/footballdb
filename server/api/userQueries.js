@@ -52,7 +52,7 @@ router.post('/singleTable', bodyParser.json(), function (req, res, next) {
     })
 })
 
-/* POST a query for a single table. */
+/* POST a query for a join. */
 router.post('/join', bodyParser.json(), function (req, res, next) {
   const tableNames = JSON.parse(JSON.stringify(req.body.tables))
   tableNames.push(...joinTables[req.body.tables.join('-')])
@@ -70,6 +70,25 @@ router.post('/join', bodyParser.json(), function (req, res, next) {
     : ''
 
   const query = `SELECT ${columns.join(', ')} FROM ${tableNames.join(', ')}${where};`
+  connection.query(query, { type: connection.QueryTypes.SELECT })
+    .then(tuples => {
+      console.log(tuples)
+      if (tuples.length) {
+        res.json(tuples)
+      } else {
+        res.status(404).json({})
+      }
+    })
+})
+
+/* GET names of teams who have not lost any home games */
+router.get('/division', bodyParser.json(), function (req, res, next) {
+  const query = `
+    select * from team where not exists 
+      (select plays.match_id from plays where plays.team_name = team.name and plays.team_type = 'Home' except 
+      (select plays.match_id from plays, match where plays.match_id = match.id and plays.team_name = team.name and 
+        (match.winner = team.name or match.winner IS NULL))) 
+    and (select count(*) from plays where team.name = plays.team_name) > 0`
   connection.query(query, { type: connection.QueryTypes.SELECT })
     .then(tuples => {
       console.log(tuples)
