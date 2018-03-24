@@ -100,4 +100,38 @@ router.get('/division', bodyParser.json(), function (req, res, next) {
     })
 })
 
+/* GET name and capacity of stadium with min/max capacity */
+router.get('/aggregation/:function', bodyParser.json(), function (req, res, next) {
+  const query = `select name, capacity from stadium where 
+    capacity = (select ${req.params.function}(capacity) from stadium)`
+  connection.query(query, { type: connection.QueryTypes.SELECT })
+    .then(tuples => {
+      console.log(tuples)
+      if (tuples.length) {
+        res.json(tuples)
+      } else {
+        res.status(404).json({})
+      }
+    })
+})
+
+/* GET name and max/min of the avg goals scored by each team */
+router.get('/nestedAggregation/:function', bodyParser.json(), function (req, res, next) {
+  const query = `
+  select name, ${req.params.function}_avg_goals from team, 
+    (select ${req.params.function}(avg_goals) as ${req.params.function}_avg_goals from 
+        (select team_name, avg(cast(goals as float)) as avg_goals from plays group by team_name) temp) temp1
+    where ${req.params.function}_avg_goals = 
+        (select avg(cast(goals as float)) as avg_goals from plays where team.name = plays.team_name group by team_name)`
+  connection.query(query, { type: connection.QueryTypes.SELECT })
+    .then(tuples => {
+      console.log(tuples)
+      if (tuples.length) {
+        res.json(tuples)
+      } else {
+        res.status(404).json({})
+      }
+    })
+})
+
 export default router
