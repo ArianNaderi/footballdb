@@ -3,10 +3,14 @@
     <div>
     <Logo />
       <h1 class="title">
-        Demo Project
+        CPSC 304 Project
       </h1>
+      <h2>
+        A Project by Arian, Atsushi, Jayvardhana, Tunir
+      </h2>
       <div class="links">
-        <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/users">View Users</nuxt-link>
+        <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/queryInformation">Query Data</nuxt-link>
+        <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/insertDeleteUpdate">Update Data</nuxt-link>
       </div>
     </div>
   </section>
