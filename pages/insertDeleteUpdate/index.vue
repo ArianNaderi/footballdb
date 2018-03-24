@@ -67,6 +67,12 @@
                                         <input v-model="message" placeholder="in cm" style="text-align: center">
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>Team Name</td>
+                                    <td>
+                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                    </td>
+                                </tr>
                                 </thead>
                             </table>
                         </div>
@@ -134,6 +140,25 @@
                                     <td>
                                         <input v-model="message" placeholder="String" style="text-align: center">
                                     </td>
+                                </tr>
+                                <tr>
+                                    <td>Team Name</td>
+                                    <td>
+                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Managed From</td>
+                                    <td>
+                                        <input v-model="message" placeholder="YYYY-MM-DD" style="text-align: center">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Managed To</td>
+                                    <td>
+                                        <input v-model="message" placeholder="YYYY-MM-DD" style="text-align: center">
+                                    </td>
+                                    <span>(Keep EMPTY if manager currently manages the team)</span>
                                 </tr>
                                 </thead>
                             </table>
@@ -215,6 +240,18 @@
                                         <input v-model="message" placeholder="String" style="text-align: center">
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>League Name</td>
+                                    <td>
+                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Year</td>
+                                    <td>
+                                        <input v-model="message" placeholder="YYYY" style="text-align: center">
+                                    </td>
+                                </tr>
                                 </thead>
                             </table>
                         </div>
@@ -252,6 +289,36 @@
                                     <input v-model="message" placeholder="String" style="text-align: center">
                                 </td>
                             </tr>
+                            <tr>
+                                <td>Home Team</td>
+                                <td>
+                                    <input v-model="message" placeholder="String" style="text-align: center">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Away Team</td>
+                                <td>
+                                    <input v-model="message" placeholder="String" style="text-align: center">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Stadium Name</td>
+                                <td>
+                                    <input v-model="message" placeholder="String" style="text-align: center">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Home Goals</td>
+                                <td>
+                                    <input v-model="message" placeholder="Integer" style="text-align: center">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Away Goals</td>
+                                <td>
+                                    <input v-model="message" placeholder="Integer" style="text-align: center">
+                                </td>
+                            </tr>
                             </thead>
                         </table>
                     </div>
@@ -280,6 +347,8 @@ export default {
   }
 }
 </script>
+
+
 
 <style lang="stylus" scoped>
 .users-view
