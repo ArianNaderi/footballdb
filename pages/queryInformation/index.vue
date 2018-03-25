@@ -1,15 +1,71 @@
 <template>
-  <section class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        Demo Project
-      </h1>
-      <div class="links">
-        <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/users">Hello</nuxt-link>
-      </div>
-    </div>
-  </section>
+    <section class="users-view">
+        <div class="content">
+            <div class="subsection">
+                <div style="margin: 25px 10px;">
+                    <div class="subsection-title" style="vertical-align: middle;">Manager</div>
+                    <div style="margin: 25px 10px;">
+                        <span style="vertical-align: middle;">Show the following managers attributes: </span>
+                        <div id='example-3'>
+                            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                            <label for="jack">Id </label>
+                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                            <label for="john">Name </label>
+                            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+                            <label for="mike">Nationality </label>
+                            <br>
+                            <!--<span>Checked names: {{ checkedNames }}</span>-->
+                        </div>
+                        <span style="vertical-align: middle;">who have the following characteristics: </span>
+                        <div style="margin: 25px 10px;">
+                            <table>
+                                <thead>
+                                <tr style="vertical-align: middle; text-align: left" >
+                                    <td>Id</td>
+                                    <td>
+                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                    </td>
+                                <tr>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>
+                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nationality</td>
+                                    <td>
+                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                    </td>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <button class="subheadersection-title" style="vertical-align: middle;">Submit</button>
+                </div>
+                <div style="margin: 25px 10px;">
+                    <div class="subsection-title" style="vertical-align: middle;">Player</div>
+                    <div style="margin: 25px 10px;">
+                        <span style="vertical-align: middle;">Show the following player attributes: </span>
+                        <div id='example-3'>
+                            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                            <label for="jack">Id </label>
+                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                            <label for="john">Name </label>
+                            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+                            <label for="mike">Nationality </label>
+                            <br>
+                            <!--<span>Checked names: {{ checkedNames }}</span>-->
+                        </div>
+                        <span style="vertical-align: middle;">Who play for team: </span>
+                        <input v-model="message" placeholder="String" style="text-align: center">
+                    </div>
+                    <button class="subheadersection-title" style="vertical-align: middle;">Submit</button>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 
 
@@ -29,6 +85,8 @@ export default {
   }
 }
 </script>
+
+
 
 <style lang="stylus" scoped>
 .users-view
@@ -57,4 +115,22 @@ export default {
     &:hover
       color #515ec4
 
+.subheadersection
+    background-color #fff
+    border-radius 2px
+    margin 25px 0
+    transition all .5s cubic-bezier(.55,0,.1,1)
+    padding 10px 30px 10px 30px
+    position relative
+    line-height 20px
+    .subheadersection-title
+        font-size 20px
+        font-weight 500
+    .title
+        font-size 18px
+        font-weight 500
+    a
+        text-decoration underline
+        &:hover
+            color #515ec4
 </style>
