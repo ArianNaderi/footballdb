@@ -47,7 +47,7 @@ router.post('/singleTable', bodyParser.json(), function (req, res, next) {
       if (tuples.length) {
         res.json(tuples)
       } else {
-        res.status(404).json({})
+        res.status(404).json({code: 404, message: 'No records found.'})
       }
     })
 })
@@ -76,7 +76,7 @@ router.post('/join', bodyParser.json(), function (req, res, next) {
       if (tuples.length) {
         res.json(tuples)
       } else {
-        res.status(404).json({})
+        res.status(404).json({code: 404, message: 'No records found.'})
       }
     })
 })
@@ -95,7 +95,7 @@ router.get('/division', bodyParser.json(), function (req, res, next) {
       if (tuples.length) {
         res.json(tuples)
       } else {
-        res.status(404).json({})
+        res.status(404).json({code: 404, message: 'No records found.'})
       }
     })
 })
@@ -110,7 +110,7 @@ router.get('/aggregation/:function', bodyParser.json(), function (req, res, next
       if (tuples.length) {
         res.json(tuples)
       } else {
-        res.status(404).json({})
+        res.status(404).json({code: 404, message: 'No records found.'})
       }
     })
 })
@@ -129,7 +129,7 @@ router.get('/nestedAggregation/:function', bodyParser.json(), function (req, res
       if (tuples.length) {
         res.json(tuples)
       } else {
-        res.status(404).json({})
+        res.status(404).json({code: 404, message: 'No records found.'})
       }
     })
 })
