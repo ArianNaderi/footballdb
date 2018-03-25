@@ -27,4 +27,29 @@ router.post('/insert', bodyParser.json(), function (req, res, next) {
     })
 })
 
+/* POST a delete query. */
+router.post('/delete', bodyParser.json(), function (req, res, next) {
+  const tableNames = req.body.tables
+
+  const conditions = req.body.conditions
+  const conditionsString = conditions.map((condition) => {
+    return `${condition.table}.${condition.key} ${condition.operator} '${condition.value}'`
+  })
+
+  const where = conditions.length
+    ? ` WHERE ${conditionsString.join(' AND ')}`
+    : ''
+
+  const query = `DELETE FROM ${tableNames[0]}${where};`
+  connection.query(query, { type: connection.QueryTypes.SELECT })
+    .then(result => {
+      // result[1] is the number of rows changed
+      res.status(200).json({code: 200, message: 'Resource deleted.'})
+    })
+    .catch(err => {
+      console.error(JSON.stringify(err.message))
+      res.status(400).json({code: 400, message: err.message})
+    })
+})
+
 export default router
