@@ -52,4 +52,33 @@ router.post('/delete', bodyParser.json(), function (req, res, next) {
     })
 })
 
+/* POST an update query. */
+router.post('/update', bodyParser.json(), function (req, res, next) {
+  const tableNames = req.body.tables
+
+  const attributesString = req.body.attributes.map((attribute) => {
+    return `${attribute.key} = ${attribute.dataType === 'string' ? `'${attribute.value}'` : attribute.value}`
+  })
+
+  const conditions = req.body.conditions
+  const conditionsString = conditions.map((condition) => {
+    return `${condition.table}.${condition.key} ${condition.operator} '${condition.value}'`
+  })
+
+  const where = conditions.length
+    ? ` WHERE ${conditionsString.join(' AND ')}`
+    : ''
+
+  const query = `UPDATE ${tableNames[0]} SET ${attributesString.join(', ')}${where};`
+  connection.query(query, { type: connection.QueryTypes.SELECT })
+    .then(result => {
+      // result[1] is the number of rows changed
+      res.status(200).json({code: 200, message: 'Resource updated.'})
+    })
+    .catch(err => {
+      console.error(JSON.stringify(err.message))
+      res.status(400).json({code: 400, message: err.message})
+    })
+})
+
 export default router
