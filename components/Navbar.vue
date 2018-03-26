@@ -8,7 +8,9 @@
         <div class="account-container" v-if="this.$store.state.permission == 'user' || this.$store.state.permission == 'admin'">
           <nuxt-link to="/queryInformation">Query Data</nuxt-link>
         </div>
-        <nuxt-link to="/users">Users</nuxt-link>
+        <div class="account-container" v-if="this.$store.state.permission == 'admin'">
+          <nuxt-link to="/users">Users</nuxt-link>
+        </div>
         <div class="account-container" v-if="this.$store.state.permission == 'admin'">
           <nuxt-link to="/insertDeleteUpdate">Update Data</nuxt-link>
         </div>
