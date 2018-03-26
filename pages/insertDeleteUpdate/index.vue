@@ -6,7 +6,7 @@
                     <div class="subsection-title" style="vertical-align: middle;">Player</div>
                     <div style="margin: 25px 10px;">
                         <span style="vertical-align: middle;">Select an option to modify the data </span>
-                        <select v-model="selected" style="vertical-align: middle;" :value="playerDataModification">
+                        <select v-model="playerDataModification" style="vertical-align: middle;" :value="playerDataModification">
                             <option disabled value=" ">Select One</option>
                             <option value="Insert">Insert</option>
                             <option value="Delete">Delete</option>
@@ -18,19 +18,19 @@
                                 <tr style="vertical-align: middle; text-align: left" >
                                     <td>Name</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center" :value="playerName">
+                                        <input v-model="playerName" placeholder="String" style="text-align: center" :value="playerName">
                                     </td>
                                 <tr>
                                 <tr>
                                     <td>Nationality</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center" :value="playerNationality">
+                                        <input v-model="playerNationality" placeholder="String" style="text-align: center" :value="playerNationality">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Position</td>
                                     <td>
-                                        <select v-model="selected" style="vertical-align: middle;" :value="playerPosition">
+                                        <select v-model="playerPosition" style="vertical-align: middle;" :value="playerPosition">
                                             <option disabled value=" ">Select One</option>
                                             <option>Goalkeeper</option>
                                             <option>Defender</option>
@@ -42,13 +42,13 @@
                                 <tr>
                                     <td>Number of Goals</td>
                                     <td>
-                                        <input v-model="message" placeholder="Integer" style="text-align: center" :value="playerGoals">
+                                        <input v-model="playerGoals" placeholder="Integer" style="text-align: center" :value="playerGoals">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Dominant Foot</td>
                                     <td>
-                                        <select v-model="selected" style="vertical-align: middle;" :value="playerFoot">
+                                        <select v-model="playerFoot" style="vertical-align: middle;" :value="playerFoot">
                                             <option disabled value=" ">Select One</option>
                                             <option>Left</option>
                                             <option>Right</option>
@@ -58,19 +58,19 @@
                                 <tr>
                                     <td>Weight</td>
                                     <td>
-                                        <input v-model="message" placeholder="in kg" style="text-align: center" :value="playerWeight">
+                                        <input v-model="playerWeight" placeholder="in kg" style="text-align: center" :value="playerWeight">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Height</td>
                                     <td>
-                                        <input v-model="message" placeholder="in cm" style="text-align: center" :value="playerHeight">
+                                        <input v-model="playerHeight" placeholder="in cm" style="text-align: center" :value="playerHeight">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Team Name</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center" :value="teamName">
+                                        <input v-model="teamName" placeholder="String" style="text-align: center" :value="teamName">
                                     </td>
                                 </tr>
                                 </thead>
@@ -398,6 +398,11 @@ export default {
           },
           {
             key: 'dominant_foot',
+            value: self.playerFoot,
+            dataType: 'number'
+          },
+          {
+            key: 'weight',
             value: self.playerWeight,
             dataType: 'number'
           },
