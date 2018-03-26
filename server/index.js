@@ -76,7 +76,7 @@ app.post('/login',
   },
   // This is called if login is successful
   function (req, res) {
-    console.log("body parsing", req.body);
+    // console.log("body parsing ======\n", req);
     res.status(200).send(req.session.passport)
   }
 )

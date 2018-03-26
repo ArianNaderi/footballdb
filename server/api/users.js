@@ -18,8 +18,8 @@ router.get('/users', function (req, res, next) {
 router.get('/users/:username', function (req, res, next) {
   const username = req.params.username
   const query = 'SELECT * FROM Users WHERE username = :username ;'
-  connection.query(query, 
-    { 
+  connection.query(query,
+    {
       type: connection.QueryTypes.SELECT,
       replacements: {
         username: username
@@ -56,17 +56,18 @@ router.post('/users/update', bodyParser.json(), function (req, res, next) {
 })
 
 router.post('/users/add', bodyParser.json(), function (req, res, next) {
-  const userid = req.body.data.userid
   const username = req.body.data.username
   const password = req.body.data.password
+  const permission = req.body.data.permission
 
-  const query = 'INSERT INTO Users (username, password) VALUES (:username, :password) ;'
+  const query = 'INSERT INTO Users (username, password, permission) VALUES (:username, :password, :permission);'
   connection.query(query,
     {
       type: connection.QueryTypes.INSERT,
       replacements: {
         username: username,
-        password: password
+        password: password,
+        permission: permission
       }
     })
     .then(result => {

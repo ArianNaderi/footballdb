@@ -15,9 +15,8 @@
         <span class="user-permission">Permission: </span>
         <select v-model="permission">
           <option disabled value="">Please select one</option>
-          <option>User</option>
-          <option>SuperUser</option>
-          <option>Admin</option>
+          <option>user</option>
+          <option>admin</option>
         </select>
       </div>
     </form>
