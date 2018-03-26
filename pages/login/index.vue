@@ -31,7 +31,7 @@ export default {
       userid: '',
       username: '',
       password: '',
-      permission: '',
+      permission: ''
     }
   },
 
@@ -62,7 +62,7 @@ export default {
         .catch((e) => {
           self.$store.commit('logout')
           self.$store.commit('newError', 'Login Failed')
-          console.log("Login Failed")
+          console.log('Login Failed')
           console.log(e)
         })
     }
