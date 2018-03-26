@@ -9,9 +9,7 @@
                     </div>
                     <ul style="list-style-type: none; padding: 0; margin: 0;">
                         <li v-for="(team, index) in teams" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
-                            <nuxt-link :to="{ path: `/queryinformation/${team.name}`}">
-                                {{ team.name}}
-                            </nuxt-link>
+                            {{ team}}
                         </li>
                     </ul>
                 </div>
