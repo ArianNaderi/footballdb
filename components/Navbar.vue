@@ -8,9 +8,12 @@
         <nuxt-link to="/queryInformation">Query Data</nuxt-link>
         <nuxt-link to="/users">Users</nuxt-link>
         <nuxt-link to="/insertDeleteUpdate">Update Data</nuxt-link>
-        <a class="github" href="https://github.com/belinghy/cpsc304" target="_blank" rel="noopener">
-          Github
-        </a>
+        <div class="account-container"v-if="this.$store.state.username">
+          <a href="/logout" >{{ this.$store.state.username }}({{ this.$store.state.permission }}): Logout</a>
+        </div>
+        <div class="account-container"v-else>
+          <nuxt-link to="/login">Login</nuxt-link>
+        </div>
       </nav>
     </div>
   </div>
@@ -48,18 +51,15 @@ export default {}
       &.router-link-active
         color #fff
         font-weight 400
-      &:nth-child(6)
-        margin-right 0
-    .github
-      font-size .9em
-      margin 0
-      float right
 
 .logo
   width 24px
   margin-right 10px
   display inline-block
   vertical-align middle
+
+.account-container
+  display: inline-block
 
 @media (max-width 860px)
   .header .inner

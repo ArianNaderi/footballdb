@@ -2,26 +2,20 @@
   <section class="user-view">
   <div class="content">
     <div class="subsection">
-    <form style="margin: 15px 15px;">
-      <div style="margin: 10px 0;">
-        <span class="user-username">Username: </span>
-        <input type="text" :value="username" v-model="username"></input>
+      <div class="error-msg" v-if="this.$store.state.errorMsg">
+        <p>{{ this.$store.state.errorMsg }}</p>
       </div>
-      <div style="margin: 10px 0;">
-        <span class="user-password">Password: </span>
-        <input type="password" v-model="password"></input>
-      </div>
-      <div style="margin: 10px 0;">
-        <span class="user-permission">Permission: </span>
-        <select v-model="permission">
-          <option disabled value="">Please select one</option>
-          <option>User</option>
-          <option>SuperUser</option>
-          <option>Admin</option>
-        </select>
-      </div>
-    </form>
-    <button type="button" class="button--grey" @click="submitInsert">Add User</button>
+      <form style="margin: 15px 15px;">
+        <div style="margin: 10px 0;">
+          <span class="user-username">Username: </span>
+          <input type="text" :value="username" v-model="username"></input>
+        </div>
+        <div style="margin: 10px 0;">
+          <span class="user-password">Password: </span>
+          <input type="password" v-model="password"></input>
+        </div>
+      </form>
+      <button type="button" class="button--grey" @click="submitLogin">Login</button>
     </div>
   </div>
   </section>
@@ -37,15 +31,15 @@ export default {
       userid: '',
       username: '',
       password: '',
-      permission: ''
+      permission: '',
     }
   },
 
   methods: {
-    submitInsert () {
+    submitLogin () {
       let self = this
 
-      axios.post('/api/users/add', {
+      axios.post('/login', {
         headers:
           {
             'Content-Type': 'application/json'
@@ -58,10 +52,17 @@ export default {
             permission: self.permission
           }})
         .then((res) => {
-          // res.data should contain the url for redirecting... bad practice
-          self.$nuxt.$router.replace({ path: res.data })
+          self.$store.commit('login', {
+            username: res.data.user.username,
+            permission: res.data.user.permission
+          })
+          self.$store.commit('noError')
+          self.$nuxt.$router.replace({ path: '/' })
         })
         .catch((e) => {
+          self.$store.commit('logout')
+          self.$store.commit('newError', 'Login Failed')
+          console.log("Login Failed")
           console.log(e)
         })
     }
@@ -69,7 +70,7 @@ export default {
 
   head () {
     return {
-      title: `Add New User`
+      title: `Login`
     }
   }
 }
@@ -91,6 +92,9 @@ export default {
   padding 10px 30px 10px 30px
   position relative
   line-height 20px
+  .error-msg
+    color: red
+    margin-left: 15px
   .subsection-title
     margin 25px 10px
     font-size 26px

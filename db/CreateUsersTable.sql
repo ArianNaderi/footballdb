@@ -1,8 +1,9 @@
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users(
-    userid SERIAL,
+  userid SERIAL,
 	username VARCHAR(32) UNIQUE NOT NULL,
 	password TEXT NOT NULL,
+	permission VARCHAR(32) NOT NULL,
 	isActive BOOLEAN NOT NULL DEFAULT TRUE,
 	PRIMARY KEY (userid)
 );
