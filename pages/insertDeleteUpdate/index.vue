@@ -70,7 +70,7 @@
                                 <tr>
                                     <td>Team Name</td>
                                     <td>
-                                        <input v-model="teamName" placeholder="String" style="text-align: center" :value="teamName">
+                                        <input v-model="playerTeamName" placeholder="String" style="text-align: center" :value="playerTeamName">
                                     </td>
                                 </tr>
                                 </thead>
@@ -83,11 +83,11 @@
                     <span class="subsection-title" style="vertical-align: middle;">Stadium</span>
                     <div style="margin: 25px 10px;">
                         <span style="vertical-align: middle;">Select an option to modify the data </span>
-                        <select v-model="selected" style="vertical-align: middle;" :value="stadiumDataModification">
+                        <select v-model="stadiumDataModification" style="vertical-align: middle;" :value="stadiumDataModification">
                             <option disabled value=" ">Select One</option>
-                            <option>Insert</option>
-                            <option>Delete</option>
-                            <option>Update</option>
+                            <option value="Insert">Insert</option>
+                            <option value="Delete">Delete</option>
+                            <option value="Update">Update</option>
                         </select>
                         <div style="margin: 25px 10px;">
                             <table>
@@ -95,19 +95,19 @@
                                 <tr style="vertical-align: middle; text-align: left" >
                                     <td>Name</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center" :value="stadiumName">
+                                        <input v-model="stadiumName" placeholder="String" style="text-align: center" :value="stadiumName">
                                     </td>
                                 <tr>
                                 <tr>
                                     <td>City</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center" :value="stadiumCity">
+                                        <input v-model="stadiumCity" placeholder="String" style="text-align: center" :value="stadiumCity">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Capacity</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center" :value="stadiumCapacity">
+                                        <input v-model="stadiumCapacity" placeholder="String" style="text-align: center" :value="stadiumCapacity">
                                     </td>
                                 </tr>
                                 </thead>
@@ -120,11 +120,11 @@
                     <span class="subsection-title" style="vertical-align: middle;">Manager</span>
                     <div style="margin: 25px 10px;">
                         <span style="vertical-align: middle;">Select an option to modify the data </span>
-                        <select v-model="selected" style="vertical-align: middle;">
+                        <select v-model="managerDataModification" style="vertical-align: middle;" :value="managerDataModification">
                             <option disabled value=" ">Select One</option>
-                            <option>Insert</option>
-                            <option>Delete</option>
-                            <option>Update</option>
+                            <option value="Insert">Insert</option>
+                            <option value="Delete">Delete</option>
+                            <option value="Update">Update</option>
                         </select>
                         <div style="margin: 25px 10px;">
                             <table>
@@ -132,31 +132,31 @@
                                 <tr style="vertical-align: middle; text-align: left" >
                                     <td>Name</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                        <input v-model="managerName" placeholder="String" style="text-align: center" :value="managerName">
                                     </td>
                                 <tr>
                                 <tr>
                                     <td>Nationality</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                        <input v-model="managerNationality" placeholder="String" style="text-align: center" :value="managerNationality">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Team Name</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                        <input v-model="managerTeamName" placeholder="String" style="text-align: center" :value="managerTeamName">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Managed From</td>
                                     <td>
-                                        <input v-model="message" placeholder="YYYY-MM-DD" style="text-align: center">
+                                        <input v-model="managedFrom" placeholder="YYYY-MM-DD" style="text-align: center" :value="managedFrom">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Managed To</td>
                                     <td>
-                                        <input v-model="message" placeholder="YYYY-MM-DD" style="text-align: center">
+                                        <input v-model="managedTo" placeholder="YYYY-MM-DD" style="text-align: center" :value="managedTo">
                                     </td>
                                     <span>(Keep EMPTY if manager currently manages the team)</span>
                                 </tr>
@@ -164,13 +164,13 @@
                             </table>
                         </div>
                     </div>
-                    <button class="subheadersection-title" style="vertical-align: middle;">Submit</button>
+                    <button class="subheadersection-title" style="vertical-align: middle;" @click="submitManager">Submit</button>
                 </div>
                 <div style="margin: 25px 10px;">
                     <span class="subsection-title" style="vertical-align: middle;">League</span>
                     <div style="margin: 25px 10px;">
                         <span style="vertical-align: middle;">Select an option to modify the data </span>
-                        <select v-model="selected" style="vertical-align: middle;">
+                        <select v-model="leagueDataModification" style="vertical-align: middle;" :value="leagueDataModification">
                             <option disabled value=" ">Select One</option>
                             <option>Insert</option>
                             <option>Delete</option>
@@ -182,26 +182,26 @@
                                 <tr style="vertical-align: middle; text-align: left" >
                                     <td>Name</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                        <input v-model="leagueName" placeholder="String" style="text-align: center" :value="leagueName">
                                     </td>
                                 <tr>
                                 <tr>
                                     <td>Country</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                        <input v-model="leagueCountry" placeholder="String" style="text-align: center" :value="leagueCountry">
                                     </td>
                                 </tr>
                                 </thead>
                             </table>
                         </div>
                     </div>
-                    <button class="subheadersection-title" style="vertical-align: middle;">Submit</button>
+                    <button class="subheadersection-title" style="vertical-align: middle;" @click="submitLeague">Submit</button>
                 </div>
                 <div style="margin: 25px 10px;">
                     <span class="subsection-title" style="vertical-align: middle;">Team</span>
                     <div style="margin: 25px 10px;">
                         <span style="vertical-align: middle;">Select an option to modify the data </span>
-                        <select v-model="selected" style="vertical-align: middle;">
+                        <select v-model="teamDataModification" style="vertical-align: middle;" :value="teamDataModification">
                             <option disabled value=" ">Select One</option>
                             <option>Insert</option>
                             <option>Delete</option>
@@ -213,56 +213,56 @@
                                 <tr style="vertical-align: middle; text-align: left" >
                                     <td>Name</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                        <input v-model="message" placeholder="String" style="text-align: center" :value="teamName">
                                     </td>
                                 <tr>
                                 <tr>
                                     <td>City</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                        <input v-model="teamCity" placeholder="String" style="text-align: center" :value="teamCity">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Number of Trophies</td>
                                     <td>
-                                        <input v-model="message" placeholder="Integer" style="text-align: center">
+                                        <input v-model="teamTrophies" placeholder="Integer" style="text-align: center" :value="teamTrophies">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Since</td>
                                     <td>
-                                        <input v-model="message" placeholder="Integer" style="text-align: center">
+                                        <input v-model="teamSince" placeholder="Integer" style="text-align: center" :value="teamSince">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Stadium Name</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                        <input v-model="teamStadium" placeholder="String" style="text-align: center" :value="teamStadium">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>League Name</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                        <input v-model="teamLeague" placeholder="String" style="text-align: center" :value="teamLeague">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Year</td>
                                     <td>
-                                        <input v-model="message" placeholder="YYYY" style="text-align: center">
+                                        <input v-model="teamYear" placeholder="YYYY" style="text-align: center" :value="teamYear">
                                     </td>
                                 </tr>
                                 </thead>
                             </table>
                         </div>
                     </div>
-                    <button class="subheadersection-title" style="vertical-align: middle;">Submit</button>
+                    <button class="subheadersection-title" style="vertical-align: middle;" @click="submitTeam">Submit</button>
                 </div>
                 <div style="margin: 25px 10px;">
                     <span class="subsection-title" style="vertical-align: middle;">Match</span>
                     <div style="margin: 25px 10px;">
                     <span style="vertical-align: middle;">Select an option to modify the data </span>
-                    <select v-model="selected" style="vertical-align: middle;">
+                    <select v-model="matchDataModification" style="vertical-align: middle;" :value="matchDataModification">
                         <option disabled value=" ">Select One</option>
                         <option>Insert</option>
                         <option>Delete</option>
@@ -274,56 +274,56 @@
                             <tr style="vertical-align: middle; text-align: left" >
                                 <td>Date</td>
                                 <td>
-                                    <input v-model="message" placeholder="YYYY-MM-DD" style="text-align: center">
+                                    <input v-model="matchDate" placeholder="YYYY-MM-DD" style="text-align: center" :value="matchDate">
                                 </td>
                             <tr>
                             <tr>
                                 <td>Referee</td>
                                 <td>
-                                    <input v-model="message" placeholder="String" style="text-align: center">
+                                    <input v-model="matchReferee" placeholder="String" style="text-align: center" :value="matchReferee">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Winner</td>
                                 <td>
-                                    <input v-model="message" placeholder="String" style="text-align: center">
+                                    <input v-model="matchWinner" placeholder="String" style="text-align: center" :value="matchWinner">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Home Team</td>
                                 <td>
-                                    <input v-model="message" placeholder="String" style="text-align: center">
+                                    <input v-model="matchHomeTeam" placeholder="String" style="text-align: center" :value="matchHomeTeam">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Away Team</td>
                                 <td>
-                                    <input v-model="message" placeholder="String" style="text-align: center">
+                                    <input v-model="matchAwayTeam" placeholder="String" style="text-align: center" :value="matchAwayTeam">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Stadium Name</td>
                                 <td>
-                                    <input v-model="message" placeholder="String" style="text-align: center">
+                                    <input v-model="matchStadiumName" placeholder="String" style="text-align: center" :value="matchStadiumName">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Home Goals</td>
                                 <td>
-                                    <input v-model="message" placeholder="Integer" style="text-align: center">
+                                    <input v-model="matchHomeGoals" placeholder="Integer" style="text-align: center" :value="matchHomeGoals">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Away Goals</td>
                                 <td>
-                                    <input v-model="message" placeholder="Integer" style="text-align: center">
+                                    <input v-model="matchAwayGoals" placeholder="Integer" style="text-align: center" :value="matchAwayGoals">
                                 </td>
                             </tr>
                             </thead>
                         </table>
                     </div>
                 </div>
-                <button class="subheadersection-title" style="vertical-align: middle;">Submit</button>
+                <button class="subheadersection-title" style="vertical-align: middle;" @click="submitMatch">Submit</button>
                 </div>
             </div>
         </div>
@@ -345,7 +345,7 @@ export default {
       playerFoot: '',
       playerWeight: '',
       playerHeight: '',
-      teamName: ''
+      playerTeamName: ''
     }
   },
 
@@ -358,6 +358,52 @@ export default {
     }
   },
 
+  managerData () {
+    return {
+      managerDataModification: '',
+      managerName: '',
+      managerNationality: '',
+      managerTeamName: '',
+      managedFrom: '',
+      managedTo: ''
+    }
+  },
+
+  leagueData () {
+    return {
+      leagueDataModification: '',
+      leagueName: '',
+      leagueCountry: ''
+    }
+  },
+
+  teamData () {
+    return {
+      teamDataModification: '',
+      teamName: '',
+      teamCity: '',
+      teamTrophies: '',
+      teamSince: '',
+      teamStadium: '',
+      teamLeague: '',
+      teamYear: ''
+    }
+  },
+
+  matchData () {
+    return {
+      matchDataModification: '',
+      matchDate: '',
+      matchReferee: '',
+      matchWinner: '',
+      matchHomeTeam: '',
+      matchAwayTeam: '',
+      matchStadiumName: '',
+      matchHomeGoals: '',
+      matchAwayGoals: ''
+    }
+  },
+
   methods: {
     generateID () {
       return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)
@@ -365,82 +411,81 @@ export default {
 
     submitPlayer () {
       let self = this
-
-      /* if (self.playerDataModification === 'Insert') { */
       const playerID = this.generateID()
-      axios.post('/api/insert', {
-        tables: ['player'],
-        attributes: [
-          {
-            key: 'id',
-            value: playerID,
-            dataType: 'string'
-          },
-          {
-            key: 'name',
-            value: self.playerName !== undefined ? self.playerName : null,
-            dataType: 'string'
-          },
-          {
-            key: 'nationality',
-            value: self.playerNationality,
-            dataType: 'string'
-          },
-          {
-            key: 'position',
-            value: self.playerPosition,
-            dataType: 'string'
-          },
-          {
-            key: 'num_goals',
-            value: self.playerGoals,
-            dataType: 'number'
-          },
-          {
-            key: 'dominant_foot',
-            value: self.playerFoot,
-            dataType: 'number'
-          },
-          {
-            key: 'weight',
-            value: self.playerWeight,
-            dataType: 'number'
-          },
-          {
-            key: 'height',
-            value: self.playerHeight,
-            dataType: 'number'
-          }
-        ]
-      }).then(() => {
+
+      if (self.playerDataModification === 'Insert') {
         axios.post('/api/insert', {
-          tables: ['owns'],
+          tables: ['player'],
           attributes: [
             {
-              key: 'team_name',
-              value: self.teamName,
+              key: 'id',
+              value: playerID,
               dataType: 'string'
             },
             {
-              key: 'player_id',
-              value: playerID,
+              key: 'name',
+              value: self.playerName !== undefined ? self.playerName : null,
               dataType: 'string'
+            },
+            {
+              key: 'nationality',
+              value: self.playerNationality !== undefined ? self.playerNationality : null,
+              dataType: 'string'
+            },
+            {
+              key: 'position',
+              value: self.playerPosition !== undefined ? self.playerPosition : null,
+              dataType: 'string'
+            },
+            {
+              key: 'num_goals',
+              value: self.playerGoals,
+              dataType: 'number'
+            },
+            {
+              key: 'dominant_foot',
+              value: self.playerFoot !== undefined ? self.playerFoot : null,
+              dataType: 'string'
+            },
+            {
+              key: 'weight',
+              value: self.playerWeight,
+              dataType: 'number'
+            },
+            {
+              key: 'height',
+              value: self.playerHeight,
+              dataType: 'number'
             }
           ]
+        }).then(() => {
+          axios.post('/api/insert', {
+            tables: ['owns'],
+            attributes: [
+              {
+                key: 'team_name',
+                value: self.playerTeamName !== undefined ? self.playerTeamName : null,
+                dataType: 'string'
+              },
+              {
+                key: 'player_id',
+                value: playerID,
+                dataType: 'string'
+              }
+            ]
+          })
+        }).then((res) => {
+          window.alert(res)
+        }).catch((e) => {
+          console.log(e)
         })
-      }).then((res) => {
-        console.log(res)
-      }).catch((e) => {
-        console.log(e)
-      })
-      /*
       } else if (self.playerDataModification === 'Delete') {
         // TODO
       } else if (self.playerDataModification === 'Update') {
         // TODO
       } else {
-        console.log('hello')
-      } */
+        console.log('Invalid Data Modification Selection')
+      }
     },
 
     submitStadium () {
@@ -452,12 +497,12 @@ export default {
           attributes: [
             {
               key: 'name',
-              value: self.stadiumName,
+              value: self.stadiumName !== undefined ? self.stadiumName : null,
               dataType: 'string'
             },
             {
               key: 'city',
-              value: self.stadiumCity,
+              value: self.stadiumCity !== undefined ? self.stadiumCity : null,
               dataType: 'string'
             },
             {
@@ -466,12 +511,274 @@ export default {
               dataType: 'number'
             }
           ]
+        }).then((res) => {
+          console.log(res)
+        }).catch((e) => {
+          console.log(e)
         })
-      } else if (self.stadiumDataModification === 'delete') {
+      } else if (self.stadiumDataModification === 'Delete') {
         // TODO
-      } else if (self.stadiumDataModification === 'update') {
+      } else if (self.stadiumDataModification === 'Update') {
         // TODO
       }
+    }
+  },
+
+  submitManager () {
+    let self = this
+    const managerID = this.generateID()
+
+    if (self.managerDataModification === 'Insert') {
+      axios.post('/api/insert', {
+        tables: ['manager'],
+        attributes: [
+          {
+            key: 'id',
+            value: managerID,
+            dataType: 'string'
+          },
+          {
+            key: 'name',
+            value: self.managerName !== undefined ? self.managerName : null,
+            dataType: 'string'
+          },
+          {
+            key: 'nationality',
+            value: self.managerNationality !== undefined ? self.managerNationality : null,
+            dataType: 'string'
+          }
+        ]
+      }).then(() => {
+        axios.post('/api/insert', {
+          tables: ['manages'],
+          attributes: [
+            {
+              key: 'team_name',
+              value: self.managerTeamName !== undefined ? self.managerTeamName : null,
+              dataType: 'string'
+            },
+            {
+              key: 'manager_id',
+              value: managerID,
+              dataType: 'string'
+            },
+            {
+              key: 'managed_from',
+              value: self.managedFrom !== undefined ? self.managedFrom : null,
+              dataType: 'string'
+            },
+            {
+              key: 'managed_to',
+              value: self.managedTo !== undefined ? self.managedTo : null,
+              dataType: 'string'
+            }
+          ]
+        })
+      }).then((res) => {
+        console.log(res)
+      }).catch((e) => {
+        console.log(e)
+      })
+    } else if (self.managerDataModification === 'Delete') {
+      // TODO
+    } else if (self.managerDataModification === 'Update') {
+      // TODO
+    }
+  },
+
+  submitLeague () {
+    let self = this
+    if (self.leagueDataModification === 'Insert') {
+      axios.post('/api/insert', {
+        tables: ['league'],
+        attributes: [
+          {
+            key: 'name',
+            value: self.leagueName !== undefined ? self.leagueName : null,
+            dataType: 'string'
+          },
+          {
+            key: 'country',
+            value: self.leagueCountry !== undefined ? self.leagueCountry : null,
+            dataType: 'string'
+          }
+        ]
+      }).then((res) => {
+        console.log(res)
+      }).catch((e) => {
+        console.log(e)
+      })
+    } else if (self.leagueDataModification === 'Delete') {
+      // TODO
+    } else if (self.leagueDataModification === 'Update') {
+      // TODO
+    }
+  },
+
+  submitTeam () {
+    let self = this
+    if (self.teamDataModification === 'Insert') {
+      axios.post('/api/insert', {
+        tables: ['team'],
+        attributes: [
+          {
+            key: 'name',
+            value: self.teamName !== undefined ? self.teamName : null,
+            dataType: 'string'
+          },
+          {
+            key: 'city',
+            value: self.teamCity !== undefined ? self.teamCity : null,
+            dataType: 'string'
+          },
+          {
+            key: 'num_trophies',
+            value: self.teamTrophies,
+            dataType: 'number'
+          },
+          {
+            key: 'since',
+            value: self.teamSince,
+            dataType: 'number'
+          },
+          {
+            key: 'stadium_name',
+            value: self.teamStadium !== undefined ? self.teamStadium : null,
+            dataType: 'string'
+          }
+        ]
+      }).then(() => {
+        axios.post('/api/insert', {
+          tables: ['participates'],
+          attributes: [
+            {
+              key: 'team_name',
+              value: self.teamName !== undefined ? self.teamName : null,
+              dataType: 'string'
+            },
+            {
+              key: 'league_name',
+              value: self.teamLeague !== undefined ? self.teamLeague : null,
+              dataType: 'string'
+            },
+            {
+              key: 'year',
+              value: self.teamYear,
+              dataType: 'number'
+            }
+          ]
+        })
+      }).then((e) => {
+        console.log(e)
+      }).catch((res) => {
+        console.log(res)
+      })
+    } else if (self.teamDataModification === 'Delete') {
+      // TODO
+    } else if (self.teamDataModification === 'Update') {
+      // TODO
+    }
+  },
+
+  submitMatch () {
+    const matchID = this.generateID()
+    let self = this
+    if (self.matchDataModification === 'Insert') {
+      axios.post('/api/insert', {
+        tables: ['match'],
+        attributes: [
+          {
+            key: 'id',
+            value: matchID,
+            dataType: 'string'
+          },
+          {
+            key: 'date',
+            value: self.matchDate !== undefined ? self.matchDate : null,
+            dataType: 'string'
+          },
+          {
+            key: 'referee',
+            value: self.matchReferee !== undefined ? self.matchReferee : null,
+            dataType: 'string'
+          },
+          {
+            key: 'winner',
+            value: self.matchWinner !== undefined ? self.matchWinner : null,
+            dataType: 'string'
+          }
+        ]
+      }).then(() => {
+        axios.post('/api/insert', {
+          tables: ['plays'],
+          attributes: [
+            {
+              key: 'match_id',
+              value: matchID,
+              dataType: 'string'
+            },
+            {
+              key: 'team_name',
+              value: self.matchHomeTeam !== undefined ? self.matchHomeTeam : null,
+              dataType: 'string'
+            },
+            {
+              key: 'stadium_name',
+              value: self.matchStadiumName !== undefined ? self.matchStadiumName : null,
+              dataType: 'string'
+            },
+            {
+              key: 'team_type',
+              value: 'Home',
+              dataType: 'string'
+            },
+            {
+              key: 'goals',
+              value: self.matchHomeGoals,
+              dataType: 'number'
+            }
+          ]
+        })
+      }).then(() => {
+        axios.post('/api/insert', {
+          tables: ['plays'],
+          attributes: [
+            {
+              key: 'match_id',
+              value: matchID,
+              dataType: 'string'
+            },
+            {
+              key: 'team_name',
+              value: self.matchAwayTeam !== undefined ? self.matchAwayTeam : null,
+              dataType: 'string'
+            },
+            {
+              key: 'stadium_name',
+              value: self.matchStadiumName !== undefined ? self.matchStadiumName : null,
+              dataType: 'string'
+            },
+            {
+              key: 'team_type',
+              value: 'Away',
+              dataType: 'string'
+            },
+            {
+              key: 'goals',
+              value: self.matchAwayGoals,
+              dataType: 'number'
+            }
+          ]
+        })
+      }).then((res) => {
+        console.log(res)
+      }).catch((e) => {
+        console.log(e)
+      })
+    } else if (self.matchDataModification === 'Delete') {
+      // TODO
+    } else if (self.matchDataModification === 'Update') {
+      // TODO
     }
   },
 
