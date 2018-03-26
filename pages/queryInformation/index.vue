@@ -6,12 +6,12 @@
                     <div class="subsection-title" style="vertical-align: middle;">Manager</div>
                     <div style="margin: 25px 10px;">
                         <span style="vertical-align: middle;">Show the following managers attributes: </span>
-                        <div id='example-3'>
-                            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                        <div id='example-1'>
+                            <input type="checkbox" id="id" value="ID" v-model="checkedNames">
                             <label for="jack">Id </label>
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                            <input type="checkbox" id="name" value="Name" v-model="checkedNames">
                             <label for="john">Name </label>
-                            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+                            <input type="checkbox" id="nationality" value="Nationality" v-model="checkedNames">
                             <label for="mike">Nationality </label>
                             <br>
                             <!--<span>Checked names: {{ checkedNames }}</span>-->
@@ -48,12 +48,12 @@
                     <div class="subsection-title" style="vertical-align: middle;">Player</div>
                     <div style="margin: 25px 10px;">
                         <span style="vertical-align: middle;">Show the following player attributes: </span>
-                        <div id='example-3'>
-                            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                        <div id='example-2'>
+                            <input type="checkbox" id="id" value="Id" v-model="checkedNames">
                             <label for="jack">Id </label>
-                            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                            <input type="checkbox" id="name" value="Name" v-model="checkedNames">
                             <label for="john">Name </label>
-                            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+                            <input type="checkbox" id="nationality" value="Nationality" v-model="checkedNames">
                             <label for="mike">Nationality </label>
                             <br>
                             <!--<span>Checked names: {{ checkedNames }}</span>-->
@@ -62,6 +62,13 @@
                         <input v-model="message" placeholder="String" style="text-align: center">
                     </div>
                     <button class="subheadersection-title" style="vertical-align: middle;">Submit</button>
+                </div>
+                <div style="margin: 25px 10px;">
+                    <div class="subsection-title" style="vertical-align: middle;">Team</div>
+                    <div style="margin: 25px 10px;">
+                        <span style="vertical-align: middle;">Show teams that have not lost a home game this year: </span>
+                    </div>
+                    <nuxt-link class="button--grey" style="padding: 5px 20px; text-decoration: none;" params="{user.name}" to="/queryinformation/team">Submit</nuxt-link>
                 </div>
             </div>
         </div>
@@ -75,12 +82,12 @@ import axios from '~/plugins/axios'
 export default {
   async asyncData () {
     let { data } = await axios.get('/api/users')
-    return { users: data }
+    return { teams: data }
   },
 
   head () {
     return {
-      title: 'Users'
+      title: 'Queries'
     }
   }
 }

@@ -4,13 +4,20 @@
     <div class="subsection">
     <form style="margin: 15px 15px;">
       <div style="margin: 10px 0;">
-        <span class="user-username">Username: </span>
+        <span class="user-username">Usernamee: </span>
         <input type="text" :value="username" v-model="username"></input>
       </div>
       <div style="margin: 10px 0;">
         <span class="user-password">Password: </span>
         <input type="password" v-model="password"></input>
       </div>
+      <ul style="list-style-type: none; padding: 0; margin: 0;">
+        <li v-for="(user, index) in users" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
+          <nuxt-link :to="{ path: `/users/${user.username}`, params: { username: user.username }}">
+            {{ user.name}}
+          </nuxt-link>
+        </li>
+      </ul>
     </form>
     <button type="button" class="button--grey" @click="submitInsert">Add User</button>
     </div>
