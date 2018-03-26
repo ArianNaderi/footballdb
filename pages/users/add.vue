@@ -11,6 +11,15 @@
         <span class="user-password">Password: </span>
         <input type="password" v-model="password"></input>
       </div>
+      <div style="margin: 10px 0;">
+        <span class="user-permission">Permission: </span>
+        <select v-model="permission">
+          <option disabled value="">Please select one</option>
+          <option>User</option>
+          <option>SuperUser</option>
+          <option>Admin</option>
+        </select>
+      </div>
     </form>
     <button type="button" class="button--grey" @click="submitInsert">Add User</button>
     </div>
@@ -27,7 +36,8 @@ export default {
     return {
       userid: '',
       username: '',
-      password: ''
+      password: '',
+      permission: ''
     }
   },
 
@@ -44,7 +54,8 @@ export default {
           {
             userid: self.userid,
             username: self.username,
-            password: self.password
+            password: self.password,
+            permission: self.permission
           }})
         .then((res) => {
           // res.data should contain the url for redirecting... bad practice
