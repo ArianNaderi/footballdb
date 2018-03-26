@@ -8,10 +8,6 @@
       <h2>
         A Project by Arian, Atsushi, Jayvardhana, Tunir
       </h2>
-      <div class="links">
-        <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/queryInformation">Query Data</nuxt-link>
-        <nuxt-link class="button--grey link" style="margin-left: 15px;" to="/insertDeleteUpdate">Update Data</nuxt-link>
-      </div>
     </div>
   </section>
 </template>
