@@ -5,10 +5,14 @@
         <router-link to="/" exact>
           <img class="logo" src="~/assets/img/happy.png" alt="logo">
         </router-link>
-        <nuxt-link to="/queryInformation">Query Data</nuxt-link>
+        <div class="account-container" v-if="this.$store.state.permission == 'user' || this.$store.state.permission == 'admin'">
+          <nuxt-link to="/queryInformation">Query Data</nuxt-link>
+        </div>
         <nuxt-link to="/users">Users</nuxt-link>
-        <nuxt-link to="/insertDeleteUpdate">Update Data</nuxt-link>
-        <div class="account-container"v-if="this.$store.state.username">
+        <div class="account-container" v-if="this.$store.state.permission == 'admin'">
+          <nuxt-link to="/insertDeleteUpdate">Update Data</nuxt-link>
+        </div>
+        <div class="account-container" v-if="this.$store.state.username">
           <a href="/logout" >{{ this.$store.state.username }}({{ this.$store.state.permission }}): Logout</a>
         </div>
         <div class="account-container"v-else>
