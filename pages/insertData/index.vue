@@ -93,7 +93,7 @@
                                 <tr>
                                     <td>Capacity</td>
                                     <td>
-                                        <input v-model="stadiumCapacity" placeholder="String" style="text-align: center" :value="stadiumCapacity">
+                                        <input v-model="stadiumCapacity" placeholder="Integer" style="text-align: center" :value="stadiumCapacity">
                                     </td>
                                 </tr>
                                 </thead>

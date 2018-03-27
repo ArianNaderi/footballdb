@@ -8,65 +8,156 @@
                         <div style="margin: 25px 10px;">
                             <table>
                                 <thead>
-                                <tr style="vertical-align: middle; text-align: left" >
-                                    <td>Name</td>
-                                    <td>
-                                        <input v-model="playerName" placeholder="String" style="text-align: center" :value="playerName">
-                                    </td>
-                                <tr>
-                                <tr>
-                                    <td>Nationality</td>
-                                    <td>
-                                        <input v-model="playerNationality" placeholder="String" style="text-align: center" :value="playerNationality">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Position</td>
-                                    <td>
-                                        <select v-model="playerPosition" style="vertical-align: middle;" :value="playerPosition">
-                                            <option disabled value=" ">Select One</option>
-                                            <option>Goalkeeper</option>
-                                            <option>Defender</option>
-                                            <option>Midfielder</option>
-                                            <option>Forward</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Number of Goals</td>
-                                    <td>
-                                        <input v-model="playerGoals" placeholder="Integer" style="text-align: center" :value="playerGoals">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Dominant Foot</td>
-                                    <td>
-                                        <select v-model="playerFoot" style="vertical-align: middle;" :value="playerFoot">
-                                            <option disabled value=" ">Select One</option>
-                                            <option>Left</option>
-                                            <option>Right</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Weight</td>
-                                    <td>
-                                        <input v-model="playerWeight" placeholder="in kg" style="text-align: center" :value="playerWeight">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Height</td>
-                                    <td>
-                                        <input v-model="playerHeight" placeholder="in cm" style="text-align: center" :value="playerHeight">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Team Name</td>
-                                    <td>
-                                        <input v-model="playerTeamName" placeholder="String" style="text-align: center" :value="playerTeamName">
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td colspan="2">Attributes to update:</td>
+                                        <td style="padding-right: 20px;"></td>
+                                        <td colspan="4">For players with following characteristics:</td>
+                                    </tr>
                                 </thead>
+                                <tbody style="font-size: 12px;">
+                                    <tr style="vertical-align: middle; text-align: left" >
+                                        <td>Name</td>
+                                        <td>
+                                            <input v-model="playerNameUpdate" placeholder="String" style="text-align: center" :value="playerNameUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Name</td>
+                                        <select v-model="playerNameWhereOp" style="vertical-align: middle;" :value="playerNameWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="playerNameWhere" placeholder="String" style="text-align: center" :value="playerNameWhere">
+                                        </td>
+                                    <tr>
+                                    <tr>
+                                        <td>Nationality</td>
+                                        <td>
+                                            <input v-model="playerNationalityUpdate" placeholder="String" style="text-align: center" :value="playerNationalityUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Nationality</td>
+                                        <select v-model="playerNationalityWhereOp" style="vertical-align: middle;" :value="playerNationalityWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="playerNationalityWhere" placeholder="String" style="text-align: center" :value="playerNationalityWhere">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Position</td>
+                                        <td>
+                                            <select v-model="playerPositionUpdate" style="vertical-align: middle;" :value="playerPositionUpdate">
+                                                <option disabled value=" ">Select One</option>
+                                                <option>Goalkeeper</option>
+                                                <option>Defender</option>
+                                                <option>Midfielder</option>
+                                                <option>Forward</option>
+                                            </select>
+                                        </td>
+                                        <td></td>
+                                        <td>Position</td>
+                                        <select v-model="playerPositionWhereOp" style="vertical-align: middle;" :value="playerPositionWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <select v-model="playerPositionWhere" style="vertical-align: middle;" :value="playerPositionWhere">
+                                                <option disabled value=" ">Select One</option>
+                                                <option>Goalkeeper</option>
+                                                <option>Defender</option>
+                                                <option>Midfielder</option>
+                                                <option>Forward</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Number of Goals</td>
+                                        <td>
+                                            <input v-model="playerGoalsUpdate" placeholder="Integer" style="text-align: center" :value="playerGoalsUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Number of Goals</td>
+                                        <select v-model="playerGoalsWhereOp" style="vertical-align: middle;" :value="playerGoalsWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>></option>
+                                            <option><</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="playerGoalsWhere" placeholder="Integer" style="text-align: center" :value="playerGoalsWhere">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dominant Foot</td>
+                                        <td>
+                                            <select v-model="playerFootUpdate" style="vertical-align: middle;" :value="playerFootUpdate">
+                                                <option disabled value=" ">Select One</option>
+                                                <option>Left</option>
+                                                <option>Right</option>
+                                            </select>
+                                        </td>
+                                        <td></td>
+                                        <td>Dominant Foot</td>
+                                        <select v-model="playerFootWhereOp" style="vertical-align: middle;" :value="playerFootWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <select v-model="playerFootWhere" style="vertical-align: middle;" :value="playerFootWhere">
+                                                <option disabled value=" ">Select One</option>
+                                                <option>Left</option>
+                                                <option>Right</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Weight</td>
+                                        <td>
+                                            <input v-model="playerWeightUpdate" placeholder="in kg" style="text-align: center" :value="playerWeightUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Weight</td>
+                                        <select v-model="playerWeightWhereOp" style="vertical-align: middle;" :value="playerWeightWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>></option>
+                                            <option><</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="playerWeightWhere" placeholder="in kg" style="text-align: center" :value="playerWeightWhere">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Height</td>
+                                        <td>
+                                            <input v-model="playerHeightUpdate" placeholder="in cm" style="text-align: center" :value="playerHeightUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Height</td>
+                                        <select v-model="playerHeightWhereOp" style="vertical-align: middle;" :value="playerHeightWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>></option>
+                                            <option><</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="playerHeightWhere" placeholder="in cm" style="text-align: center" :value="playerHeightWhere">
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -78,25 +169,66 @@
                         <div style="margin: 25px 10px;">
                             <table>
                                 <thead>
-                                <tr style="vertical-align: middle; text-align: left" >
-                                    <td>Name</td>
-                                    <td>
-                                        <input v-model="stadiumName" placeholder="String" style="text-align: center" :value="stadiumName">
-                                    </td>
-                                <tr>
-                                <tr>
-                                    <td>City</td>
-                                    <td>
-                                        <input v-model="stadiumCity" placeholder="String" style="text-align: center" :value="stadiumCity">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Capacity</td>
-                                    <td>
-                                        <input v-model="stadiumCapacity" placeholder="String" style="text-align: center" :value="stadiumCapacity">
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td colspan="2">Attributes to update:</td>
+                                        <td style="padding-right: 20px;"></td>
+                                        <td colspan="4">For stadiums with following characteristics:</td>
+                                    </tr>
                                 </thead>
+                                <tbody style="font-size: 12px;">
+                                    <tr style="vertical-align: middle; text-align: left" >
+                                        <td>Name</td>
+                                        <td>
+                                            <input v-model="stadiumNameUpdate" placeholder="String" style="text-align: center" :value="stadiumNameUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Name</td>
+                                        <select v-model="stadiumNameWhereOp" style="vertical-align: middle;" :value="stadiumNameWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="stadiumNameWhere" placeholder="String" style="text-align: center" :value="stadiumNameWhere">
+                                        </td>
+                                    <tr>
+                                    <tr>
+                                        <td>City</td>
+                                        <td>
+                                            <input v-model="stadiumCityUpdate" placeholder="String" style="text-align: center" :value="stadiumCityUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>City</td>
+                                        <select v-model="stadiumCityWhereOp" style="vertical-align: middle;" :value="stadiumCityWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="stadiumCityWhere" placeholder="String" style="text-align: center" :value="stadiumCityWhere">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Capacity</td>
+                                        <td>
+                                            <input v-model="stadiumCapacityUpdate" placeholder="Integer" style="text-align: center" :value="stadiumCapacityUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Capacity</td>
+                                        <select v-model="stadiumCapacityWhereOp" style="vertical-align: middle;" :value="stadiumCapacityWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>></option>
+                                            <option><</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="stadiumCapacityWhere" placeholder="Integer" style="text-align: center" :value="stadiumCapacityWhere">
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -108,38 +240,48 @@
                         <div style="margin: 25px 10px;">
                             <table>
                                 <thead>
-                                <tr style="vertical-align: middle; text-align: left" >
-                                    <td>Name</td>
-                                    <td>
-                                        <input v-model="managerName" placeholder="String" style="text-align: center" :value="managerName">
-                                    </td>
-                                <tr>
-                                <tr>
-                                    <td>Nationality</td>
-                                    <td>
-                                        <input v-model="managerNationality" placeholder="String" style="text-align: center" :value="managerNationality">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Team Name</td>
-                                    <td>
-                                        <input v-model="managerTeamName" placeholder="String" style="text-align: center" :value="managerTeamName">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Managed From</td>
-                                    <td>
-                                        <input v-model="managedFrom" placeholder="YYYY-MM-DD" style="text-align: center" :value="managedFrom">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Managed To</td>
-                                    <td>
-                                        <input v-model="managedTo" placeholder="YYYY-MM-DD" style="text-align: center" :value="managedTo">
-                                    </td>
-                                    <span>(Keep EMPTY if manager currently manages the team)</span>
-                                </tr>
+                                    <tr>
+                                        <td colspan="2">Attributes to update:</td>
+                                        <td style="padding-right: 20px;"></td>
+                                        <td colspan="4">For managers with following characteristics:</td>
+                                    </tr>
                                 </thead>
+                                <tbody style="font-size: 12px;">
+                                    <tr style="vertical-align: middle; text-align: left" >
+                                        <td>Name</td>
+                                        <td>
+                                            <input v-model="managerNameUpdate" placeholder="String" style="text-align: center" :value="managerNameUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Name</td>
+                                        <select v-model="managerNameWhereOp" style="vertical-align: middle;" :value="managerNameWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="managerNameWhere" placeholder="String" style="text-align: center" :value="managerNameWhere">
+                                        </td>
+                                    <tr>
+                                    <tr>
+                                        <td>Nationality</td>
+                                        <td>
+                                            <input v-model="managerNationalityUpdate" placeholder="String" style="text-align: center" :value="managerNationalityUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Nationality</td>
+                                        <select v-model="managerNationalityWhereOp" style="vertical-align: middle;" :value="managerNationalityWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="managerNationalityWhere" placeholder="String" style="text-align: center" :value="managerNationalityWhere">
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -290,37 +432,59 @@
 
 
 <script>
-import axios from '~/plugins/axios'
+    /* eslint-disable indent */
+
+    import axios from '~/plugins/axios'
 
 export default {
   playerData () {
     return {
-      playerName: '',
-      playerNationality: '',
-      playerPosition: '',
-      playerGoals: '',
-      playerFoot: '',
-      playerWeight: '',
-      playerHeight: '',
-      playerTeamName: ''
+      playerNameUpdate: '',
+      playerNationalityUpdate: '',
+      playerPositionUpdate: '',
+      playerGoalsUpdate: '',
+      playerFootUpdate: '',
+      playerWeightUpdate: '',
+      playerHeightUpdate: '',
+      playerNameWhere: '',
+      playerNationalityWhere: '',
+      playerPositionWhere: '',
+      playerGoalsWhere: '',
+      playerFootWhere: '',
+      playerWeightWhere: '',
+      playerHeightWhere: '',
+      playerNameWhereOp: '',
+      playerNationalityWhereOp: '',
+      playerPositionWhereOp: '',
+      playerGoalsWhereOp: '',
+      playerFootWhereOp: '',
+      playerWeightWhereOp: '',
+      playerHeightWhereOp: ''
     }
   },
 
   stadiumData () {
     return {
-      stadiumName: '',
-      stadiumCity: '',
-      stadiumCapacity: ''
+      stadiumNameUpdate: '',
+      stadiumCityUpdate: '',
+      stadiumCapacityUpdate: '',
+      stadiumNameWhere: '',
+      stadiumCityWhere: '',
+      stadiumCapacityWhere: '',
+      stadiumNameWhereOp: '',
+      stadiumCityWhereOp: '',
+      stadiumCapacityWhereOp: ''
     }
   },
 
   managerData () {
     return {
-      managerName: '',
-      managerNationality: '',
-      managerTeamName: '',
-      managedFrom: '',
-      managedTo: ''
+      managerNameUpdate: '',
+      managerNationalityUpdate: '',
+      managerNameWhere: '',
+      managerNationalityWhere: '',
+      managerNameWhereOp: '',
+      managerNationalityWhereOp: ''
     }
   },
 
@@ -363,98 +527,199 @@ export default {
 
     submitPlayer () {
       let self = this
-      const playerID = this.generateID()
 
-      axios.post('/api/insert', {
-        tables: ['player'],
-        attributes: [
-          {
-            key: 'id',
-            value: playerID,
-            dataType: 'string'
-          },
-          {
-            key: 'name',
-            value: self.playerName !== undefined ? self.playerName : null,
-            dataType: 'string'
-          },
-          {
-            key: 'nationality',
-            value: self.playerNationality !== undefined ? self.playerNationality : null,
-            dataType: 'string'
-          },
-          {
-            key: 'position',
-            value: self.playerPosition !== undefined ? self.playerPosition : null,
-            dataType: 'string'
-          },
-          {
-            key: 'num_goals',
-            value: self.playerGoals,
-            dataType: 'number'
-          },
-          {
-            key: 'dominant_foot',
-            value: self.playerFoot !== undefined ? self.playerFoot : null,
-            dataType: 'string'
-          },
-          {
-            key: 'weight',
-            value: self.playerWeight,
-            dataType: 'number'
-          },
-          {
-            key: 'height',
-            value: self.playerHeight,
-            dataType: 'number'
-          }
-        ]
-      }).then(() => {
-        axios.post('/api/insert', {
-          tables: ['owns'],
-          attributes: [
-            {
-              key: 'team_name',
-              value: self.playerTeamName !== undefined ? self.playerTeamName : null,
-              dataType: 'string'
-            },
-            {
-              key: 'player_id',
-              value: playerID,
-              dataType: 'string'
-            }
-          ]
-        }).then((result) => {
-          alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
-        }).catch((error) => {
-          alert('Code: ' + error.response.data.code + ' ' + 'Message: ' + error.response.data.message)
+      const attributes = []
+      if (self.playerNameUpdate !== undefined) {
+        attributes.push({
+          key: 'name',
+          value: self.playerName,
+          dataType: 'string'
         })
-      }).catch((playerError) => {
-        alert('Code: ' + playerError.response.data.code + ' ' + 'Message: ' + playerError.response.data.message)
+      }
+
+      if (self.playerNationalityUpdate !== undefined) {
+        attributes.push({
+          key: 'nationality',
+          value: self.playerNationalityUpdate,
+          dataType: 'string'
+        })
+      }
+
+      if (self.playerPositionUpdate !== undefined) {
+        attributes.push({
+          key: 'position',
+          value: self.playerPositionUpdate,
+          dataType: 'string'
+        })
+      }
+
+      if (self.playerGoalsUpdate !== undefined) {
+        attributes.push({
+          key: 'num_goals',
+          value: self.playerGoalsUpdate,
+          dataType: 'number'
+        })
+      }
+
+      if (self.playerFootUpdate !== undefined) {
+        attributes.push({
+          key: 'dominant_foot',
+          value: self.playerFootUpdate,
+          dataType: 'string'
+        })
+      }
+
+      if (self.playerWeightUpdate !== undefined) {
+        attributes.push({
+          key: 'weight',
+          value: self.playerWeightUpdate,
+          dataType: 'number'
+        })
+      }
+
+      if (self.playerHeightUpdate !== undefined) {
+        attributes.push({
+          key: 'height',
+          value: self.playerHeightUpdate,
+          dataType: 'number'
+        })
+      }
+
+      const conditions = []
+      if (self.playerNameWhere !== undefined) {
+        conditions.push({
+          table: 'player',
+          key: 'name',
+          value: self.playerNameWhere,
+          operator: self.playerNameWhereOp
+        })
+      }
+
+      if (self.playerNationalityWhere !== undefined) {
+        conditions.push({
+          table: 'player',
+          key: 'nationality',
+          value: self.playerNationalityWhere,
+          operator: self.playerNationalityWhereOp
+        })
+      }
+
+      if (self.playerPositionWhere !== undefined) {
+        conditions.push({
+          table: 'player',
+          key: 'position',
+          value: self.playerPositionWhere,
+          operator: self.playerPositionWhereOp
+        })
+      }
+
+      if (self.playerGoalsWhere !== undefined) {
+        conditions.push({
+          table: 'player',
+          key: 'num_goals',
+          value: self.playerGoalsWhere,
+          operator: self.playerGoalsWhereOp
+        })
+      }
+
+      if (self.playerFootWhere !== undefined) {
+        conditions.push({
+          table: 'player',
+          key: 'dominant_foot',
+          value: self.playerFootWhere,
+          operator: self.playerFootWhereOp
+        })
+      }
+
+      if (self.playerWeightWhere !== undefined) {
+        conditions.push({
+          table: 'player',
+          key: 'weight',
+          value: self.playerWeightWhere,
+          operator: self.playerWeightWhereOp
+        })
+      }
+
+      if (self.playerHeightWhere !== undefined) {
+        conditions.push({
+          table: 'player',
+          key: 'height',
+          value: self.playerHeightWhere,
+          operator: self.playerHeightWhereOp
+        })
+      }
+
+      axios.post('/api/update', {
+        tables: ['player'],
+        attributes,
+        conditions
+      }).then((result) => {
+        alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+      }).catch((error) => {
+        alert('Code: ' + error.response.data.code + ' ' + 'Message: ' + error.response.data.message)
       })
     },
 
     submitStadium () {
       let self = this
-      axios.post('/api/insert', {
+
+      const attributes = []
+      if (self.stadiumNameUpdate !== undefined) {
+        attributes.push({
+          key: 'name',
+          value: self.stadiumNameUpdate,
+          dataType: 'string'
+        })
+      }
+
+      if (self.stadiumCityUpdate !== undefined) {
+        attributes.push({
+          key: 'city',
+          value: self.stadiumCityUpdate,
+          dataType: 'string'
+        })
+      }
+
+      if (self.stadiumCapacityUpdate !== undefined) {
+        attributes.push({
+          key: 'capacity',
+          value: self.stadiumCapacityUpdate,
+          dataType: 'number'
+        })
+      }
+
+      const conditions = []
+      if (self.stadiumNameWhere !== undefined) {
+        conditions.push({
+          table: 'stadium',
+          key: 'name',
+          value: self.stadiumNameWhere,
+          operator: self.stadiumNameWhereOp
+        })
+      }
+
+      if (self.stadiumCityWhere !== undefined) {
+        conditions.push({
+          table: 'stadium',
+          key: 'city',
+          value: self.stadiumCityWhere,
+          operator: self.stadiumCityWhereOp
+        })
+      }
+
+      if (self.stadiumCapacityWhere !== undefined) {
+        conditions.push({
+          table: 'stadium',
+          key: 'capacity',
+          value: self.stadiumCapacityWhere,
+          operator: self.stadiumCityWhereOp
+        })
+      }
+
+      axios.post('/api/update', {
         tables: ['stadium'],
-        attributes: [
-          {
-            key: 'name',
-            value: self.stadiumName !== undefined ? self.stadiumName : null,
-            dataType: 'string'
-          },
-          {
-            key: 'city',
-            value: self.stadiumCity !== undefined ? self.stadiumCity : null,
-            dataType: 'string'
-          },
-          {
-            key: 'capacity',
-            value: self.stadiumCapacity,
-            dataType: 'number'
-          }
-        ]
+        attributes,
+        conditions
       }).then((result) => {
         alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
       }).catch((error) => {
@@ -464,58 +729,51 @@ export default {
 
     submitManager () {
       let self = this
-      const managerID = this.generateID()
-      axios.post('/api/insert', {
-        tables: ['manager'],
-        attributes: [
-          {
-            key: 'id',
-            value: managerID,
-            dataType: 'string'
-          },
-          {
-            key: 'name',
-            value: self.managerName !== undefined ? self.managerName : null,
-            dataType: 'string'
-          },
-          {
-            key: 'nationality',
-            value: self.managerNationality !== undefined ? self.managerNationality : null,
-            dataType: 'string'
-          }
-        ]
-      }).catch((managerError) => {
-        alert('Code: ' + managerError.response.data.code + ' ' + 'Message: ' + managerError.response.data.message)
-      }).then(() => {
-        axios.post('/api/insert', {
-          tables: ['manages'],
-          attributes: [
-            {
-              key: 'team_name',
-              value: self.managerTeamName !== undefined ? self.managerTeamName : null,
-              dataType: 'string'
-            },
-            {
-              key: 'manager_id',
-              value: managerID,
-              dataType: 'string'
-            },
-            {
-              key: 'managed_from',
-              value: self.managedFrom !== undefined ? self.managedFrom : null,
-              dataType: 'string'
-            },
-            {
-              key: 'managed_to',
-              value: self.managedTo !== undefined ? self.managedTo : '',
-              dataType: 'string'
-            }
-          ]
-        }).then((result) => {
-          alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
-        }).catch((managesError) => {
-          alert('Code: ' + managesError.response.data.code + ' ' + 'Message: ' + managesError.response.data.message)
+
+      const attributes = []
+      if (self.managerNameUpdate !== undefined) {
+        attributes.push({
+          key: 'name',
+          value: self.managerNameUpdate,
+          dataType: 'string'
         })
+      }
+
+      if (self.managerNationalityUpdate !== undefined) {
+        attributes.push({
+          key: 'nationality',
+          value: self.managerNationalityUpdate,
+          dataType: 'string'
+        })
+      }
+
+      const conditions = []
+      if (self.managerNameWhere !== undefined) {
+        conditions.push({
+          table: 'manager',
+          key: 'name',
+          value: self.managerNameWhere,
+          operator: self.managerNameWhereOp
+        })
+      }
+
+      if (self.managerNationalityWhere !== undefined) {
+        conditions.push({
+          table: 'manager',
+          key: 'nationality',
+          value: self.managerNationalityWhere,
+          operator: self.managerNationalityWhereOp
+        })
+      }
+
+      axios.post('/api/update', {
+        tables: ['manager'],
+        attributes,
+        conditions
+      }).then((result) => {
+        alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+      }).catch((error) => {
+        alert('Code: ' + error.response.data.code + ' ' + 'Message: ' + error.response.data.message)
       })
     },
 
