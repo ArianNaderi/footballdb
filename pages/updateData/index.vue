@@ -293,19 +293,48 @@
                         <div style="margin: 25px 10px;">
                             <table>
                                 <thead>
-                                <tr style="vertical-align: middle; text-align: left" >
-                                    <td>Name</td>
-                                    <td>
-                                        <input v-model="leagueName" placeholder="String" style="text-align: center" :value="leagueName">
-                                    </td>
-                                <tr>
-                                <tr>
-                                    <td>Country</td>
-                                    <td>
-                                        <input v-model="leagueCountry" placeholder="String" style="text-align: center" :value="leagueCountry">
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td colspan="2">Attributes to update:</td>
+                                        <td style="padding-right: 20px;"></td>
+                                        <td colspan="4">For leagues with following characteristics:</td>
+                                    </tr>
                                 </thead>
+                                <tbody style="font-size: 12px;">
+                                    <tr style="vertical-align: middle; text-align: left" >
+                                        <td>Name</td>
+                                        <td>
+                                            <input v-model="leagueNameUpdate" placeholder="String" style="text-align: center" :value="leagueNameUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Name</td>
+                                        <select v-model="leagueNameWhereOp" style="vertical-align: middle;" :value="leagueNameWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="leagueNameWhere" placeholder="String" style="text-align: center" :value="leagueNameWhere">
+                                        </td>
+                                    <tr>
+                                    <tr>
+                                        <td>Country</td>
+                                        <td>
+                                            <input v-model="leagueCountryUpdate" placeholder="String" style="text-align: center" :value="leagueCountryUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Country</td>
+                                        <select v-model="leagueCountryWhereOp" style="vertical-align: middle;" :value="leagueCountryWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="leagueCountryWhere" placeholder="String" style="text-align: center" :value="leagueCountryWhere">
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -490,8 +519,12 @@ export default {
 
   leagueData () {
     return {
-      leagueName: '',
-      leagueCountry: ''
+      leagueNameUpdate: '',
+      leagueCountryUpdate: '',
+      leagueNameWhere: '',
+      leagueCountryWhere: '',
+      leagueNameWhereOp: '',
+      leagueCountryWhereOp: ''
     }
   },
 
@@ -779,20 +812,47 @@ export default {
 
     submitLeague () {
       let self = this
-      axios.post('/api/insert', {
+
+      const attributes = []
+      if (self.leagueNameUpdate !== undefined) {
+        attributes.push({
+          key: 'name',
+          value: self.leagueNameUpdate,
+          dataType: 'string'
+        })
+      }
+
+      if (self.leagueCountryUpdate !== undefined) {
+        attributes.push({
+          key: 'country',
+          value: self.leagueCountryUpdate,
+          dataType: 'string'
+        })
+      }
+
+      const conditions = []
+      if (self.leagueNameWhere !== undefined) {
+        conditions.push({
+          table: 'league',
+          key: 'name',
+          value: self.leagueNameWhere,
+          operator: self.leagueNameWhereOp
+        })
+      }
+
+      if (self.leagueCountryWhere !== undefined) {
+        conditions.push({
+          table: 'league',
+          key: 'country',
+          value: self.leagueCountryWhere,
+          operator: self.leagueCountryWhereOp
+        })
+      }
+
+      axios.post('/api/update', {
         tables: ['league'],
-        attributes: [
-          {
-            key: 'name',
-            value: self.leagueName !== undefined ? self.leagueName : null,
-            dataType: 'string'
-          },
-          {
-            key: 'country',
-            value: self.leagueCountry !== undefined ? self.leagueCountry : null,
-            dataType: 'string'
-          }
-        ]
+        attributes,
+        conditions
       }).then((result) => {
         alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
       }).catch((error) => {
