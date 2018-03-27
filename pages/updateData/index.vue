@@ -346,49 +346,101 @@
                         <div style="margin: 25px 10px;">
                             <table>
                                 <thead>
-                                <tr style="vertical-align: middle; text-align: left" >
-                                    <td>Name</td>
-                                    <td>
-                                        <input v-model="teamName" placeholder="String" style="text-align: center" :value="teamName">
-                                    </td>
-                                <tr>
-                                <tr>
-                                    <td>City</td>
-                                    <td>
-                                        <input v-model="teamCity" placeholder="String" style="text-align: center" :value="teamCity">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Number of Trophies</td>
-                                    <td>
-                                        <input v-model="teamTrophies" placeholder="Integer" style="text-align: center" :value="teamTrophies">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Since</td>
-                                    <td>
-                                        <input v-model="teamSince" placeholder="Integer" style="text-align: center" :value="teamSince">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Stadium Name</td>
-                                    <td>
-                                        <input v-model="teamStadium" placeholder="String" style="text-align: center" :value="teamStadium">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>League Name</td>
-                                    <td>
-                                        <input v-model="teamLeague" placeholder="String" style="text-align: center" :value="teamLeague">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Year</td>
-                                    <td>
-                                        <input v-model="teamYear" placeholder="YYYY" style="text-align: center" :value="teamYear">
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td colspan="2">Attributes to update:</td>
+                                        <td style="padding-right: 20px;"></td>
+                                        <td colspan="4">For teams with following characteristics:</td>
+                                    </tr>
                                 </thead>
+                                <tbody style="font-size: 12px;">
+                                    <tr style="vertical-align: middle; text-align: left" >
+                                        <td>Name</td>
+                                        <td>
+                                            <input v-model="teamNameUpdate" placeholder="String" style="text-align: center" :value="teamNameUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Name</td>
+                                        <select v-model="teamNameWhereOp" style="vertical-align: middle;" :value="teamNameWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="teamNameWhere" placeholder="String" style="text-align: center" :value="teamNameWhere">
+                                        </td>
+                                    <tr>
+                                    <tr>
+                                        <td>City</td>
+                                        <td>
+                                            <input v-model="teamCityUpdate" placeholder="String" style="text-align: center" :value="teamCityUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>City</td>
+                                        <select v-model="teamCityWhereOp" style="vertical-align: middle;" :value="teamCityWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="teamCityWhere" placeholder="String" style="text-align: center" :value="teamCityWhere">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Number of Trophies</td>
+                                        <td>
+                                            <input v-model="teamTrophiesUpdate" placeholder="Integer" style="text-align: center" :value="teamTrophiesUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Number of Trophies</td>
+                                        <select v-model="teamTrophiesWhereOp" style="vertical-align: middle;" :value="teamTrophiesWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>></option>
+                                            <option><</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="teamTrophiesWhere" placeholder="Integer" style="text-align: center" :value="teamTrophiesWhere">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Since</td>
+                                        <td>
+                                            <input v-model="teamSinceUpdate" placeholder="YYYY" style="text-align: center" :value="teamSinceUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Since</td>
+                                        <select v-model="teamSinceWhereOp" style="vertical-align: middle;" :value="teamSinceWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>></option>
+                                            <option><</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="teamSinceWhere" placeholder="YYYY" style="text-align: center" :value="teamSinceWhere">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stadium Name</td>
+                                        <td>
+                                            <input v-model="teamStadiumUpdate" placeholder="String" style="text-align: center" :value="teamStadiumUpdate">
+                                        </td>
+                                        <td></td>
+                                        <td>Stadium Name</td>
+                                        <select v-model="teamStadiumWhereOp" style="vertical-align: middle;" :value="teamStadiumWhereOp">
+                                            <option disabled value=" ">Select One</option>
+                                            <option>=</option>
+                                            <option>!=</option>
+                                            <option>LIKE</option>
+                                        </select>
+                                        <td>
+                                            <input v-model="teamStadiumWhere" placeholder="String" style="text-align: center" :value="teamStadiumWhere">
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -400,55 +452,48 @@
                     <div style="margin: 25px 10px;">
                         <table>
                             <thead>
-                            <tr style="vertical-align: middle; text-align: left" >
-                                <td>Date</td>
-                                <td>
-                                    <input v-model="matchDate" placeholder="YYYY-MM-DD" style="text-align: center" :value="matchDate">
-                                </td>
-                            <tr>
-                            <tr>
-                                <td>Referee</td>
-                                <td>
-                                    <input v-model="matchReferee" placeholder="String" style="text-align: center" :value="matchReferee">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Winner</td>
-                                <td>
-                                    <input v-model="matchWinner" placeholder="String" style="text-align: center" :value="matchWinner">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Home Team</td>
-                                <td>
-                                    <input v-model="matchHomeTeam" placeholder="String" style="text-align: center" :value="matchHomeTeam">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Away Team</td>
-                                <td>
-                                    <input v-model="matchAwayTeam" placeholder="String" style="text-align: center" :value="matchAwayTeam">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stadium Name</td>
-                                <td>
-                                    <input v-model="matchStadiumName" placeholder="String" style="text-align: center" :value="matchStadiumName">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Home Goals</td>
-                                <td>
-                                    <input v-model="matchHomeGoals" placeholder="Integer" style="text-align: center" :value="matchHomeGoals">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Away Goals</td>
-                                <td>
-                                    <input v-model="matchAwayGoals" placeholder="Integer" style="text-align: center" :value="matchAwayGoals">
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td colspan="2">Attributes to update:</td>
+                                    <td style="padding-right: 20px;"></td>
+                                    <td colspan="4">For matches with following characteristics:</td>
+                                </tr>
                             </thead>
+                            <tbody style="font-size: 12px;">
+                                <tr style="vertical-align: middle; text-align: left" >
+                                    <td>Date</td>
+                                    <td>
+                                        <input v-model="matchDateUpdate" placeholder="YYYY-MM-DD" style="text-align: center" :value="matchDateUpdate">
+                                    </td>
+                                    <td></td>
+                                    <td>Referee</td>
+                                    <select v-model="matchDateWhereOp" style="vertical-align: middle;" :value="matchDateWhereOp">
+                                        <option disabled value=" ">Select One</option>
+                                        <option>=</option>
+                                        <option>!=</option>
+                                        <option>LIKE</option>
+                                    </select>
+                                    <td>
+                                        <input v-model="matchDateWhere" placeholder="YYYY-MM-DD" style="text-align: center" :value="matchDateWhere">
+                                    </td>
+                                <tr>
+                                <tr>
+                                    <td>Referee</td>
+                                    <td>
+                                        <input v-model="matchRefereeUpdate" placeholder="String" style="text-align: center" :value="matchRefereeUpdate">
+                                    </td>
+                                    <td></td>
+                                    <td>Referee</td>
+                                    <select v-model="matchRefereeWhereOp" style="vertical-align: middle;" :value="matchRefereeWhereOp">
+                                        <option disabled value=" ">Select One</option>
+                                        <option>=</option>
+                                        <option>!=</option>
+                                        <option>LIKE</option>
+                                    </select>
+                                    <td>
+                                        <input v-model="matchRefereeWhere" placeholder="String" style="text-align: center" :value="matchRefereeWhere">
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -530,34 +575,36 @@ export default {
 
   teamData () {
     return {
-      teamName: '',
-      teamCity: '',
-      teamTrophies: '',
-      teamSince: '',
-      teamStadium: '',
-      teamLeague: '',
-      teamYear: ''
+      teamNameUpdate: '',
+      teamCityUpdate: '',
+      teamTrophiesUpdate: '',
+      teamSinceUpdate: '',
+      teamStadiumUpdate: '',
+      teamNameWhere: '',
+      teamCityWhere: '',
+      teamTrophiesWhere: '',
+      teamSinceWhere: '',
+      teamStadiumWhere: '',
+      teamNameWhereOp: '',
+      teamCityWhereOp: '',
+      teamTrophiesWhereOp: '',
+      teamSinceWhereOp: '',
+      teamStadiumWhereOp: ''
     }
   },
 
   matchData () {
     return {
-      matchDate: '',
-      matchReferee: '',
-      matchWinner: '',
-      matchHomeTeam: '',
-      matchAwayTeam: '',
-      matchStadiumName: '',
-      matchHomeGoals: '',
-      matchAwayGoals: ''
+      matchDateUpdate: '',
+      matchRefereeUpdate: '',
+      matchDateWhere: '',
+      matchRefereeWhere: '',
+      matchDateWhereOp: '',
+      matchRefereeWhereOp: ''
     }
   },
 
   methods: {
-    generateID () {
-      return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1)
-    },
-
     submitPlayer () {
       let self = this
 
@@ -862,162 +909,152 @@ export default {
 
     submitTeam () {
       let self = this
-      axios.post('/api/insert', {
-        tables: ['team'],
-        attributes: [
-          {
-            key: 'name',
-            value: self.teamName !== undefined ? self.teamName : null,
-            dataType: 'string'
-          },
-          {
-            key: 'city',
-            value: self.teamCity !== undefined ? self.teamCity : null,
-            dataType: 'string'
-          },
-          {
-            key: 'num_trophies',
-            value: self.teamTrophies,
-            dataType: 'number'
-          },
-          {
-            key: 'since',
-            value: self.teamSince,
-            dataType: 'number'
-          },
-          {
-            key: 'stadium_name',
-            value: self.teamStadium !== undefined ? self.teamStadium : null,
-            dataType: 'string'
-          }
-        ]
-      }).then(() => {
-        axios.post('/api/insert', {
-          tables: ['participates'],
-          attributes: [
-            {
-              key: 'team_name',
-              value: self.teamName !== undefined ? self.teamName : null,
-              dataType: 'string'
-            },
-            {
-              key: 'league_name',
-              value: self.teamLeague !== undefined ? self.teamLeague : null,
-              dataType: 'string'
-            },
-            {
-              key: 'year',
-              value: self.teamYear,
-              dataType: 'number'
-            }
-          ]
-        }).then((result) => {
-          alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
-        }).catch((participatesError) => {
-          alert('Code: ' + participatesError.response.data.code + ' ' + 'Message: ' + participatesError.response.data.message)
+
+      const attributes = []
+      if (self.teamNameUpdate !== undefined) {
+        attributes.push({
+          key: 'name',
+          value: self.teamNameUpdate,
+          dataType: 'string'
         })
-      }).catch((teamError) => {
-        alert('Code: ' + teamError.response.data.code + ' ' + 'Message: ' + teamError.response.data.message)
+      }
+
+      if (self.teamCityUpdate !== undefined) {
+        attributes.push({
+          key: 'city',
+          value: self.teamCityUpdate,
+          dataType: 'string'
+        })
+      }
+
+      if (self.teamTrophiesUpdate !== undefined) {
+        attributes.push({
+          key: 'num_trophies',
+          value: self.teamTrophiesUpdate,
+          dataType: 'number'
+        })
+      }
+
+      if (self.teamSinceUpdate !== undefined) {
+        attributes.push({
+          key: 'since',
+          value: self.teamSinceUpdate,
+          dataType: 'number'
+        })
+      }
+
+      if (self.teamStadiumUpdate !== undefined) {
+        attributes.push({
+          key: 'stadium_name',
+          value: self.teamStadiumUpdate,
+          dataType: 'string'
+        })
+      }
+
+      const conditions = []
+      if (self.teamNameWhere !== undefined) {
+        conditions.push({
+          table: 'team',
+          key: 'name',
+          value: self.teamNameWhere,
+          operator: self.teamNameWhereOp
+        })
+      }
+
+      if (self.teamCityWhere !== undefined) {
+        conditions.push({
+          table: 'team',
+          key: 'city',
+          value: self.teamCityWhere,
+          operator: self.teamCityWhereOp
+        })
+      }
+
+      if (self.teamTrophiesWhere !== undefined) {
+        conditions.push({
+          table: 'team',
+          key: 'num_trophies',
+          value: self.teamTrophiesWhere,
+          operator: self.teamTrophiesWhereOp
+        })
+      }
+
+      if (self.teamSinceWhere !== undefined) {
+        conditions.push({
+          table: 'team',
+          key: 'since',
+          value: self.teamSinceWhere,
+          operator: self.teamSinceWhereOp
+        })
+      }
+
+      if (self.teamStadiumWhere !== undefined) {
+        conditions.push({
+          table: 'team',
+          key: 'stadium_name',
+          value: self.teamStadiumWhere,
+          operator: self.teamStadiumWhereOp
+        })
+      }
+
+      axios.post('/api/update', {
+        tables: ['team'],
+        attributes,
+        conditions
+      }).then((result) => {
+        alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+      }).catch((error) => {
+        alert('Code: ' + error.response.data.code + ' ' + 'Message: ' + error.response.data.message)
       })
     },
 
     submitMatch () {
-      const matchID = this.generateID()
       let self = this
-      axios.post('/api/insert', {
-        tables: ['match'],
-        attributes: [
-          {
-            key: 'id',
-            value: matchID,
-            dataType: 'string'
-          },
-          {
-            key: 'date',
-            value: self.matchDate !== undefined ? self.matchDate : null,
-            dataType: 'string'
-          },
-          {
-            key: 'referee',
-            value: self.matchReferee !== undefined ? self.matchReferee : null,
-            dataType: 'string'
-          },
-          {
-            key: 'winner',
-            value: self.matchWinner !== undefined ? self.matchWinner : null,
-            dataType: 'string'
-          }
-        ]
-      }).then(() => {
-        axios.post('/api/insert', {
-          tables: ['plays'],
-          attributes: [
-            {
-              key: 'match_id',
-              value: matchID,
-              dataType: 'string'
-            },
-            {
-              key: 'team_name',
-              value: self.matchHomeTeam !== undefined ? self.matchHomeTeam : null,
-              dataType: 'string'
-            },
-            {
-              key: 'stadium_name',
-              value: self.matchStadiumName !== undefined ? self.matchStadiumName : null,
-              dataType: 'string'
-            },
-            {
-              key: 'team_type',
-              value: 'Home',
-              dataType: 'string'
-            },
-            {
-              key: 'goals',
-              value: self.matchHomeGoals,
-              dataType: 'number'
-            }
-          ]
-        }).then(() => {
-          axios.post('/api/insert', {
-            tables: ['plays'],
-            attributes: [
-              {
-                key: 'match_id',
-                value: matchID,
-                dataType: 'string'
-              },
-              {
-                key: 'team_name',
-                value: self.matchAwayTeam !== undefined ? self.matchAwayTeam : null,
-                dataType: 'string'
-              },
-              {
-                key: 'stadium_name',
-                value: self.matchStadiumName !== undefined ? self.matchStadiumName : null,
-                dataType: 'string'
-              },
-              {
-                key: 'team_type',
-                value: 'Away',
-                dataType: 'string'
-              },
-              {
-                key: 'goals',
-                value: self.matchAwayGoals,
-                dataType: 'number'
-              }
-            ]
-          }).then((result) => {
-            alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
-          }).catch((awayTeamError) => {
-            alert('Code: ' + awayTeamError.response.data.code + ' ' + 'Message: ' + awayTeamError.response.data.message)
-          })
-        }).catch((homeTeamError) => {
-          alert('Code: ' + homeTeamError.response.data.code + ' ' + 'Message: ' + homeTeamError.response.data.message)
+
+      const attributes = []
+      if (self.matchDateUpdate !== undefined) {
+        attributes.push({
+          key: 'date',
+          value: self.matchDateUpdate,
+          dataType: 'string'
         })
-      }).catch((matchError) => {
-        alert('Code: ' + matchError.response.data.code + ' ' + 'Message: ' + matchError.response.data.message)
+      }
+
+      if (self.matchRefereeUpdate !== undefined) {
+        attributes.push({
+          key: 'referee',
+          value: self.matchRefereeUpdate,
+          dataType: 'string'
+        })
+      }
+
+      const conditions = []
+      if (self.matchDateWhere !== undefined) {
+        conditions.push({
+          table: 'match',
+          key: 'date',
+          value: self.matchDateWhere,
+          operator: self.matchDateWhereOp
+        })
+      }
+
+      if (self.matchRefereeWhere !== undefined) {
+        conditions.push({
+          table: 'match',
+          key: 'referee',
+          value: self.matchRefereeWhere,
+          operator: self.matchRefereeWhereOp
+        })
+      }
+
+      axios.post('/api/update', {
+        tables: ['match'],
+        attributes,
+        conditions
+      }).then((result) => {
+        alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+      }).catch((error) => {
+        alert('Code: ' + error.response.data.code + ' ' + 'Message: ' + error.response.data.message)
       })
     }
   }
