@@ -9,7 +9,7 @@
                     </div>
                     <ul style="list-style-type: none; padding: 0; margin: 0;">
                         <li v-for="(team, index) in teams" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">
-                            {{ team}}
+                            {{ 'Team: ' + team.name+', City: ' +team.city+' , Number of Trophies: '+ team.num_trophies + ' , Data Founded: '+team.since+' , Stadium: '+team.stadium_name}}
                         </li>
                     </ul>
                 </div>

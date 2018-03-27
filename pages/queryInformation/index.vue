@@ -87,6 +87,14 @@
                     </div>
                     <nuxt-link class="button--grey" style="padding: 5px 20px; text-decoration: none;" params="{user.name}" to="/queryinformation/team">Submit</nuxt-link>
                 </div>
+                <div style="margin: 25px 10px;">
+                    <div class="subsection-title" style="vertical-align: middle;">Stadium</div>
+                    <div style="margin: 25px 10px;">
+                        <span style="vertical-align: middle;">Show the stadium with (MAX/MIN) capacity: </span>
+                    </div>
+                    <nuxt-link class="button--grey" style="padding: 5px 20px; text-decoration: none;" params="{user.name}" to="/queryinformation/max">Max</nuxt-link>
+                    <nuxt-link class="button--grey" style="padding: 5px 20px; text-decoration: none;" params="{user.name}" to="/queryinformation/min">Min</nuxt-link>
+                </div>
             </div>
         </div>
     </section>
