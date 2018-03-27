@@ -489,6 +489,10 @@ export default {
       }
 
       if (self.playerGoalsWhere !== undefined) {
+        if (isNaN(parseInt(self.playerGoalsWhere))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.playerGoalsWhere + ' is not a number.')
+          return
+        }
         conditions.push({
           table: 'player',
           key: 'num_goals',
@@ -507,6 +511,10 @@ export default {
       }
 
       if (self.playerWeightWhere !== undefined) {
+        if (isNaN(parseInt(self.playerWeightWhere))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.playerWeightWhere + ' is not a number.')
+          return
+        }
         conditions.push({
           table: 'player',
           key: 'weight',
@@ -516,6 +524,10 @@ export default {
       }
 
       if (self.playerHeightWhere !== undefined) {
+        if (isNaN(parseInt(self.playerHeightWhere))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.playerHeightWhere + ' is not a number.')
+          return
+        }
         conditions.push({
           table: 'player',
           key: 'height',
@@ -557,6 +569,10 @@ export default {
       }
 
       if (self.stadiumCapacityWhere !== undefined) {
+        if (isNaN(parseInt(self.stadiumCapacityWhere))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.stadiumCapacityWhere + ' is not a number.')
+          return
+        }
         conditions.push({
           table: 'stadium',
           key: 'capacity',
@@ -662,6 +678,10 @@ export default {
       }
 
       if (self.teamTrophiesWhere !== undefined) {
+        if (isNaN(parseInt(self.teamTrophiesWhere))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.teamTrophiesWhere + ' is not a number.')
+          return
+        }
         conditions.push({
           table: 'team',
           key: 'num_trophies',
@@ -671,6 +691,10 @@ export default {
       }
 
       if (self.teamSinceWhere !== undefined) {
+        if (isNaN(parseInt(self.teamSinceWhere))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.teamSinceWhere + ' is not a number.')
+          return
+        }
         conditions.push({
           table: 'team',
           key: 'since',

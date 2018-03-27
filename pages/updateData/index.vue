@@ -634,6 +634,10 @@ export default {
       }
 
       if (self.playerGoalsUpdate !== undefined) {
+        if (isNaN(parseInt(self.playerGoalsUpdate))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.playerGoalsUpdate + ' is not a number.')
+          return
+        }
         attributes.push({
           key: 'num_goals',
           value: self.playerGoalsUpdate,
@@ -650,6 +654,10 @@ export default {
       }
 
       if (self.playerWeightUpdate !== undefined) {
+        if (isNaN(parseInt(self.playerWeightUpdate))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.playerWeightUpdate + ' is not a number.')
+          return
+        }
         attributes.push({
           key: 'weight',
           value: self.playerWeightUpdate,
@@ -658,6 +666,10 @@ export default {
       }
 
       if (self.playerHeightUpdate !== undefined) {
+        if (isNaN(parseInt(self.playerHeightUpdate))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.playerHeightUpdate + ' is not a number.')
+          return
+        }
         attributes.push({
           key: 'height',
           value: self.playerHeightUpdate,
@@ -694,6 +706,10 @@ export default {
       }
 
       if (self.playerGoalsWhere !== undefined) {
+        if (isNaN(parseInt(self.playerGoalsWhere))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.playerGoalsWhere + ' is not a number.')
+          return
+        }
         conditions.push({
           table: 'player',
           key: 'num_goals',
@@ -712,6 +728,10 @@ export default {
       }
 
       if (self.playerWeightWhere !== undefined) {
+        if (isNaN(parseInt(self.playerWeightWhere))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.playerWeightWhere + ' is not a number.')
+          return
+        }
         conditions.push({
           table: 'player',
           key: 'weight',
@@ -721,6 +741,10 @@ export default {
       }
 
       if (self.playerHeightWhere !== undefined) {
+        if (isNaN(parseInt(self.playerHeightWhere))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.playerHeightWhere + ' is not a number.')
+          return
+        }
         conditions.push({
           table: 'player',
           key: 'height',
@@ -761,6 +785,10 @@ export default {
       }
 
       if (self.stadiumCapacityUpdate !== undefined) {
+        if (isNaN(parseInt(self.stadiumCapacityUpdate))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.stadiumCapacityUpdate + ' is not a number.')
+          return
+        }
         attributes.push({
           key: 'capacity',
           value: self.stadiumCapacityUpdate,
@@ -788,6 +816,10 @@ export default {
       }
 
       if (self.stadiumCapacityWhere !== undefined) {
+        if (isNaN(parseInt(self.stadiumCapacityWhere))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.stadiumCapacityWhere + ' is not a number.')
+          return
+        }
         conditions.push({
           table: 'stadium',
           key: 'capacity',
@@ -928,6 +960,10 @@ export default {
       }
 
       if (self.teamTrophiesUpdate !== undefined) {
+        if (isNaN(parseInt(self.teamTrophiesUpdate))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.teamTrophiesUpdate + ' is not a number.')
+          return
+        }
         attributes.push({
           key: 'num_trophies',
           value: self.teamTrophiesUpdate,
@@ -936,6 +972,10 @@ export default {
       }
 
       if (self.teamSinceUpdate !== undefined) {
+        if (isNaN(parseInt(self.teamSinceUpdate))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.teamSinceUpdate + ' is not a number.')
+          return
+        }
         attributes.push({
           key: 'since',
           value: self.teamSinceUpdate,
@@ -971,6 +1011,10 @@ export default {
       }
 
       if (self.teamTrophiesWhere !== undefined) {
+        if (isNaN(parseInt(self.teamTrophiesWhere))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.teamTrophiesWhere + ' is not a number.')
+          return
+        }
         conditions.push({
           table: 'team',
           key: 'num_trophies',
@@ -980,6 +1024,10 @@ export default {
       }
 
       if (self.teamSinceWhere !== undefined) {
+        if (isNaN(parseInt(self.teamSinceWhere))) {
+          alert('Code: ' + '400' + ' ' + 'Message: ' + self.teamSinceWhere + ' is not a number.')
+          return
+        }
         conditions.push({
           table: 'team',
           key: 'since',
