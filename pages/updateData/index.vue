@@ -511,7 +511,7 @@
     import axios from '~/plugins/axios'
 
 export default {
-  playerData () {
+  data () {
     return {
       playerNameUpdate: '',
       playerNationalityUpdate: '',
@@ -533,12 +533,7 @@ export default {
       playerGoalsWhereOp: '',
       playerFootWhereOp: '',
       playerWeightWhereOp: '',
-      playerHeightWhereOp: ''
-    }
-  },
-
-  stadiumData () {
-    return {
+      playerHeightWhereOp: '',
       stadiumNameUpdate: '',
       stadiumCityUpdate: '',
       stadiumCapacityUpdate: '',
@@ -547,34 +542,19 @@ export default {
       stadiumCapacityWhere: '',
       stadiumNameWhereOp: '',
       stadiumCityWhereOp: '',
-      stadiumCapacityWhereOp: ''
-    }
-  },
-
-  managerData () {
-    return {
+      stadiumCapacityWhereOp: '',
       managerNameUpdate: '',
       managerNationalityUpdate: '',
       managerNameWhere: '',
       managerNationalityWhere: '',
       managerNameWhereOp: '',
-      managerNationalityWhereOp: ''
-    }
-  },
-
-  leagueData () {
-    return {
+      managerNationalityWhereOp: '',
       leagueNameUpdate: '',
       leagueCountryUpdate: '',
       leagueNameWhere: '',
       leagueCountryWhere: '',
       leagueNameWhereOp: '',
-      leagueCountryWhereOp: ''
-    }
-  },
-
-  teamData () {
-    return {
+      leagueCountryWhereOp: '',
       teamNameUpdate: '',
       teamCityUpdate: '',
       teamTrophiesUpdate: '',
@@ -589,12 +569,7 @@ export default {
       teamCityWhereOp: '',
       teamTrophiesWhereOp: '',
       teamSinceWhereOp: '',
-      teamStadiumWhereOp: ''
-    }
-  },
-
-  matchData () {
-    return {
+      teamStadiumWhereOp: '',
       matchDateUpdate: '',
       matchRefereeUpdate: '',
       matchDateWhere: '',
