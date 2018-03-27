@@ -364,6 +364,20 @@ export default {
     submitPlayer () {
       let self = this
       const playerID = this.generateID()
+      if (isNaN(parseInt(self.playerGoals)) && self.playerGoals !== undefined) {
+        alert('Code: ' + '400' + ' ' + 'Message: ' + self.playerGoals + ' is not a number.')
+        return
+      }
+
+      if (isNaN(parseInt(self.playerWeight)) && self.playerWeight !== undefined) {
+        alert('Code: ' + '400' + ' ' + 'Message: ' + self.playerWeight + ' is not a number.')
+        return
+      }
+
+      if (isNaN(parseInt(self.playerHeight)) && self.playerHeight !== undefined) {
+        alert('Code: ' + '400' + ' ' + 'Message: ' + self.playerHeight + ' is not a number.')
+        return
+      }
 
       axios.post('/api/insert', {
         tables: ['player'],
@@ -436,6 +450,12 @@ export default {
 
     submitStadium () {
       let self = this
+
+      if (isNaN(parseInt(self.stadiumCapacity)) && self.stadiumCapacity !== undefined) {
+        alert('Code: ' + '400' + ' ' + 'Message: ' + self.stadiumCapacity + ' is not a number.')
+        return
+      }
+
       axios.post('/api/insert', {
         tables: ['stadium'],
         attributes: [
@@ -544,6 +564,22 @@ export default {
 
     submitTeam () {
       let self = this
+
+      if (isNaN(parseInt(self.teamTrophies)) && self.teamTrophies !== undefined) {
+        alert('Code: ' + '400' + ' ' + 'Message: ' + self.teamTrophies + ' is not a number.')
+        return
+      }
+
+      if (isNaN(parseInt(self.teamSince)) && self.teamSince !== undefined) {
+        alert('Code: ' + '400' + ' ' + 'Message: ' + self.teamSince + ' is not a number.')
+        return
+      }
+
+      if (isNaN(parseInt(self.teamYear)) && self.teamYear !== undefined) {
+        alert('Code: ' + '400' + ' ' + 'Message: ' + self.teamYear + ' is not a number.')
+        return
+      }
+
       axios.post('/api/insert', {
         tables: ['team'],
         attributes: [
@@ -606,6 +642,17 @@ export default {
     submitMatch () {
       const matchID = this.generateID()
       let self = this
+
+      if (isNaN(parseInt(self.matchHomeGoals)) && self.matchHomeGoals !== undefined) {
+        alert('Code: ' + '400' + ' ' + 'Message: ' + self.matchHomeGoals + ' is not a number.')
+        return
+      }
+
+      if (isNaN(parseInt(self.matchAwayGoals)) && self.matchAwayGoals !== undefined) {
+        alert('Code: ' + '400' + ' ' + 'Message: ' + self.matchAwayGoals + ' is not a number.')
+        return
+      }
+
       axios.post('/api/insert', {
         tables: ['match'],
         attributes: [
