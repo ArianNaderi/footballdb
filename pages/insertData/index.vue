@@ -5,13 +5,6 @@
                 <div style="margin: 25px 10px;">
                     <div class="subsection-title" style="vertical-align: middle;">Player</div>
                     <div style="margin: 25px 10px;">
-                        <span style="vertical-align: middle;">Select an option to modify the data </span>
-                        <select v-model="playerDataModification" style="vertical-align: middle;" :value="playerDataModification">
-                            <option disabled value=" ">Select One</option>
-                            <option value="Insert">Insert</option>
-                            <option value="Delete">Delete</option>
-                            <option value="Update">Update</option>
-                        </select>
                         <div style="margin: 25px 10px;">
                             <table>
                                 <thead>
@@ -82,13 +75,6 @@
                 <div style="margin: 25px 10px;">
                     <span class="subsection-title" style="vertical-align: middle;">Stadium</span>
                     <div style="margin: 25px 10px;">
-                        <span style="vertical-align: middle;">Select an option to modify the data </span>
-                        <select v-model="stadiumDataModification" style="vertical-align: middle;" :value="stadiumDataModification">
-                            <option disabled value=" ">Select One</option>
-                            <option value="Insert">Insert</option>
-                            <option value="Delete">Delete</option>
-                            <option value="Update">Update</option>
-                        </select>
                         <div style="margin: 25px 10px;">
                             <table>
                                 <thead>
@@ -119,13 +105,6 @@
                 <div style="margin: 25px 10px;">
                     <span class="subsection-title" style="vertical-align: middle;">Manager</span>
                     <div style="margin: 25px 10px;">
-                        <span style="vertical-align: middle;">Select an option to modify the data </span>
-                        <select v-model="managerDataModification" style="vertical-align: middle;" :value="managerDataModification">
-                            <option disabled value=" ">Select One</option>
-                            <option value="Insert">Insert</option>
-                            <option value="Delete">Delete</option>
-                            <option value="Update">Update</option>
-                        </select>
                         <div style="margin: 25px 10px;">
                             <table>
                                 <thead>
@@ -169,13 +148,6 @@
                 <div style="margin: 25px 10px;">
                     <span class="subsection-title" style="vertical-align: middle;">League</span>
                     <div style="margin: 25px 10px;">
-                        <span style="vertical-align: middle;">Select an option to modify the data </span>
-                        <select v-model="leagueDataModification" style="vertical-align: middle;" :value="leagueDataModification">
-                            <option disabled value=" ">Select One</option>
-                            <option>Insert</option>
-                            <option>Delete</option>
-                            <option>Update</option>
-                        </select>
                         <div style="margin: 25px 10px;">
                             <table>
                                 <thead>
@@ -200,20 +172,13 @@
                 <div style="margin: 25px 10px;">
                     <span class="subsection-title" style="vertical-align: middle;">Team</span>
                     <div style="margin: 25px 10px;">
-                        <span style="vertical-align: middle;">Select an option to modify the data </span>
-                        <select v-model="teamDataModification" style="vertical-align: middle;" :value="teamDataModification">
-                            <option disabled value=" ">Select One</option>
-                            <option>Insert</option>
-                            <option>Delete</option>
-                            <option>Update</option>
-                        </select>
                         <div style="margin: 25px 10px;">
                             <table>
                                 <thead>
                                 <tr style="vertical-align: middle; text-align: left" >
                                     <td>Name</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center" :value="teamName">
+                                        <input v-model="teamName" placeholder="String" style="text-align: center" :value="teamName">
                                     </td>
                                 <tr>
                                 <tr>
@@ -261,13 +226,6 @@
                 <div style="margin: 25px 10px;">
                     <span class="subsection-title" style="vertical-align: middle;">Match</span>
                     <div style="margin: 25px 10px;">
-                    <span style="vertical-align: middle;">Select an option to modify the data </span>
-                    <select v-model="matchDataModification" style="vertical-align: middle;" :value="matchDataModification">
-                        <option disabled value=" ">Select One</option>
-                        <option>Insert</option>
-                        <option>Delete</option>
-                        <option>Update</option>
-                    </select>
                     <div style="margin: 25px 10px;">
                         <table>
                             <thead>
@@ -337,7 +295,6 @@ import axios from '~/plugins/axios'
 export default {
   playerData () {
     return {
-      playerDataModification: '',
       playerName: '',
       playerNationality: '',
       playerPosition: '',
@@ -351,7 +308,6 @@ export default {
 
   stadiumData () {
     return {
-      stadiumDataModification: '',
       stadiumName: '',
       stadiumCity: '',
       stadiumCapacity: ''
@@ -360,7 +316,6 @@ export default {
 
   managerData () {
     return {
-      managerDataModification: '',
       managerName: '',
       managerNationality: '',
       managerTeamName: '',
@@ -371,7 +326,6 @@ export default {
 
   leagueData () {
     return {
-      leagueDataModification: '',
       leagueName: '',
       leagueCountry: ''
     }
@@ -379,7 +333,6 @@ export default {
 
   teamData () {
     return {
-      teamDataModification: '',
       teamName: '',
       teamCity: '',
       teamTrophies: '',
@@ -392,7 +345,6 @@ export default {
 
   matchData () {
     return {
-      matchDataModification: '',
       matchDate: '',
       matchReferee: '',
       matchWinner: '',
@@ -413,122 +365,106 @@ export default {
       let self = this
       const playerID = this.generateID()
 
-      if (self.playerDataModification === 'Insert') {
+      axios.post('/api/insert', {
+        tables: ['player'],
+        attributes: [
+          {
+            key: 'id',
+            value: playerID,
+            dataType: 'string'
+          },
+          {
+            key: 'name',
+            value: self.playerName !== undefined ? self.playerName : null,
+            dataType: 'string'
+          },
+          {
+            key: 'nationality',
+            value: self.playerNationality !== undefined ? self.playerNationality : null,
+            dataType: 'string'
+          },
+          {
+            key: 'position',
+            value: self.playerPosition !== undefined ? self.playerPosition : null,
+            dataType: 'string'
+          },
+          {
+            key: 'num_goals',
+            value: self.playerGoals,
+            dataType: 'number'
+          },
+          {
+            key: 'dominant_foot',
+            value: self.playerFoot !== undefined ? self.playerFoot : null,
+            dataType: 'string'
+          },
+          {
+            key: 'weight',
+            value: self.playerWeight,
+            dataType: 'number'
+          },
+          {
+            key: 'height',
+            value: self.playerHeight,
+            dataType: 'number'
+          }
+        ]
+      }).then(() => {
         axios.post('/api/insert', {
-          tables: ['player'],
+          tables: ['owns'],
           attributes: [
             {
-              key: 'id',
+              key: 'team_name',
+              value: self.playerTeamName !== undefined ? self.playerTeamName : null,
+              dataType: 'string'
+            },
+            {
+              key: 'player_id',
               value: playerID,
               dataType: 'string'
-            },
-            {
-              key: 'name',
-              value: self.playerName !== undefined ? self.playerName : null,
-              dataType: 'string'
-            },
-            {
-              key: 'nationality',
-              value: self.playerNationality !== undefined ? self.playerNationality : null,
-              dataType: 'string'
-            },
-            {
-              key: 'position',
-              value: self.playerPosition !== undefined ? self.playerPosition : null,
-              dataType: 'string'
-            },
-            {
-              key: 'num_goals',
-              value: self.playerGoals,
-              dataType: 'number'
-            },
-            {
-              key: 'dominant_foot',
-              value: self.playerFoot !== undefined ? self.playerFoot : null,
-              dataType: 'string'
-            },
-            {
-              key: 'weight',
-              value: self.playerWeight,
-              dataType: 'number'
-            },
-            {
-              key: 'height',
-              value: self.playerHeight,
-              dataType: 'number'
             }
           ]
-        }).then(() => {
-          axios.post('/api/insert', {
-            tables: ['owns'],
-            attributes: [
-              {
-                key: 'team_name',
-                value: self.playerTeamName !== undefined ? self.playerTeamName : null,
-                dataType: 'string'
-              },
-              {
-                key: 'player_id',
-                value: playerID,
-                dataType: 'string'
-              }
-            ]
-          })
-        }).then((res) => {
-          window.alert(res)
-        }).catch((e) => {
-          console.log(e)
+        }).then((result) => {
+          alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+        }).catch((error) => {
+          alert('Code: ' + error.response.data.code + ' ' + 'Message: ' + error.response.data.message)
         })
-      } else if (self.playerDataModification === 'Delete') {
-        // TODO
-      } else if (self.playerDataModification === 'Update') {
-        // TODO
-      } else {
-        console.log('Invalid Data Modification Selection')
-      }
+      }).catch((playerError) => {
+        alert('Code: ' + playerError.response.data.code + ' ' + 'Message: ' + playerError.response.data.message)
+      })
     },
 
     submitStadium () {
       let self = this
+      axios.post('/api/insert', {
+        tables: ['stadium'],
+        attributes: [
+          {
+            key: 'name',
+            value: self.stadiumName !== undefined ? self.stadiumName : null,
+            dataType: 'string'
+          },
+          {
+            key: 'city',
+            value: self.stadiumCity !== undefined ? self.stadiumCity : null,
+            dataType: 'string'
+          },
+          {
+            key: 'capacity',
+            value: self.stadiumCapacity,
+            dataType: 'number'
+          }
+        ]
+      }).then((result) => {
+        alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+      }).catch((error) => {
+        alert('Code: ' + error.response.data.code + ' ' + 'Message: ' + error.response.data.message)
+      })
+    },
 
-      if (self.stadiumDataModification === 'Insert') {
-        axios.post('/api/insert', {
-          tables: ['stadium'],
-          attributes: [
-            {
-              key: 'name',
-              value: self.stadiumName !== undefined ? self.stadiumName : null,
-              dataType: 'string'
-            },
-            {
-              key: 'city',
-              value: self.stadiumCity !== undefined ? self.stadiumCity : null,
-              dataType: 'string'
-            },
-            {
-              key: 'capacity',
-              value: self.stadiumCapacity,
-              dataType: 'number'
-            }
-          ]
-        }).then((res) => {
-          console.log(res)
-        }).catch((e) => {
-          console.log(e)
-        })
-      } else if (self.stadiumDataModification === 'Delete') {
-        // TODO
-      } else if (self.stadiumDataModification === 'Update') {
-        // TODO
-      }
-    }
-  },
-
-  submitManager () {
-    let self = this
-    const managerID = this.generateID()
-
-    if (self.managerDataModification === 'Insert') {
+    submitManager () {
+      let self = this
+      const managerID = this.generateID()
       axios.post('/api/insert', {
         tables: ['manager'],
         attributes: [
@@ -548,6 +484,8 @@ export default {
             dataType: 'string'
           }
         ]
+      }).catch((managerError) => {
+        alert('Code: ' + managerError.response.data.code + ' ' + 'Message: ' + managerError.response.data.message)
       }).then(() => {
         axios.post('/api/insert', {
           tables: ['manages'],
@@ -569,26 +507,20 @@ export default {
             },
             {
               key: 'managed_to',
-              value: self.managedTo !== undefined ? self.managedTo : null,
+              value: self.managedTo !== undefined ? self.managedTo : '',
               dataType: 'string'
             }
           ]
+        }).then((result) => {
+          alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+        }).catch((managesError) => {
+          alert('Code: ' + managesError.response.data.code + ' ' + 'Message: ' + managesError.response.data.message)
         })
-      }).then((res) => {
-        console.log(res)
-      }).catch((e) => {
-        console.log(e)
       })
-    } else if (self.managerDataModification === 'Delete') {
-      // TODO
-    } else if (self.managerDataModification === 'Update') {
-      // TODO
-    }
-  },
+    },
 
-  submitLeague () {
-    let self = this
-    if (self.leagueDataModification === 'Insert') {
+    submitLeague () {
+      let self = this
       axios.post('/api/insert', {
         tables: ['league'],
         attributes: [
@@ -603,21 +535,15 @@ export default {
             dataType: 'string'
           }
         ]
-      }).then((res) => {
-        console.log(res)
-      }).catch((e) => {
-        console.log(e)
+      }).then((result) => {
+        alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+      }).catch((error) => {
+        alert('Code: ' + error.response.data.code + ' ' + 'Message: ' + error.response.data.message)
       })
-    } else if (self.leagueDataModification === 'Delete') {
-      // TODO
-    } else if (self.leagueDataModification === 'Update') {
-      // TODO
-    }
-  },
+    },
 
-  submitTeam () {
-    let self = this
-    if (self.teamDataModification === 'Insert') {
+    submitTeam () {
+      let self = this
       axios.post('/api/insert', {
         tables: ['team'],
         attributes: [
@@ -667,23 +593,19 @@ export default {
               dataType: 'number'
             }
           ]
+        }).then((result) => {
+          alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+        }).catch((participatesError) => {
+          alert('Code: ' + participatesError.response.data.code + ' ' + 'Message: ' + participatesError.response.data.message)
         })
-      }).then((e) => {
-        console.log(e)
-      }).catch((res) => {
-        console.log(res)
+      }).catch((teamError) => {
+        alert('Code: ' + teamError.response.data.code + ' ' + 'Message: ' + teamError.response.data.message)
       })
-    } else if (self.teamDataModification === 'Delete') {
-      // TODO
-    } else if (self.teamDataModification === 'Update') {
-      // TODO
-    }
-  },
+    },
 
-  submitMatch () {
-    const matchID = this.generateID()
-    let self = this
-    if (self.matchDataModification === 'Insert') {
+    submitMatch () {
+      const matchID = this.generateID()
+      let self = this
       axios.post('/api/insert', {
         tables: ['match'],
         attributes: [
@@ -738,58 +660,47 @@ export default {
               dataType: 'number'
             }
           ]
+        }).then(() => {
+          axios.post('/api/insert', {
+            tables: ['plays'],
+            attributes: [
+              {
+                key: 'match_id',
+                value: matchID,
+                dataType: 'string'
+              },
+              {
+                key: 'team_name',
+                value: self.matchAwayTeam !== undefined ? self.matchAwayTeam : null,
+                dataType: 'string'
+              },
+              {
+                key: 'stadium_name',
+                value: self.matchStadiumName !== undefined ? self.matchStadiumName : null,
+                dataType: 'string'
+              },
+              {
+                key: 'team_type',
+                value: 'Away',
+                dataType: 'string'
+              },
+              {
+                key: 'goals',
+                value: self.matchAwayGoals,
+                dataType: 'number'
+              }
+            ]
+          }).then((result) => {
+            alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+          }).catch((awayTeamError) => {
+            alert('Code: ' + awayTeamError.response.data.code + ' ' + 'Message: ' + awayTeamError.response.data.message)
+          })
+        }).catch((homeTeamError) => {
+          alert('Code: ' + homeTeamError.response.data.code + ' ' + 'Message: ' + homeTeamError.response.data.message)
         })
-      }).then(() => {
-        axios.post('/api/insert', {
-          tables: ['plays'],
-          attributes: [
-            {
-              key: 'match_id',
-              value: matchID,
-              dataType: 'string'
-            },
-            {
-              key: 'team_name',
-              value: self.matchAwayTeam !== undefined ? self.matchAwayTeam : null,
-              dataType: 'string'
-            },
-            {
-              key: 'stadium_name',
-              value: self.matchStadiumName !== undefined ? self.matchStadiumName : null,
-              dataType: 'string'
-            },
-            {
-              key: 'team_type',
-              value: 'Away',
-              dataType: 'string'
-            },
-            {
-              key: 'goals',
-              value: self.matchAwayGoals,
-              dataType: 'number'
-            }
-          ]
-        })
-      }).then((res) => {
-        console.log(res)
-      }).catch((e) => {
-        console.log(e)
+      }).catch((matchError) => {
+        alert('Code: ' + matchError.response.data.code + ' ' + 'Message: ' + matchError.response.data.message)
       })
-    } else if (self.matchDataModification === 'Delete') {
-      // TODO
-    } else if (self.matchDataModification === 'Update') {
-      // TODO
-    }
-  },
-
-  async asyncData () {
-    let { data } = await axios.get('/api/users')
-    return { users: data }
-  },
-
-  head () {
-    return {
-      title: 'Users'
     }
   }
 }
