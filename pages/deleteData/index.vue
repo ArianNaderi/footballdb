@@ -9,18 +9,11 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <td colspan="2">Attributes to update:</td>
-                                        <td style="padding-right: 20px;"></td>
-                                        <td colspan="4">For players with following characteristics:</td>
+                                        <td>Delete players with following characteristics:</td>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 12px;">
                                     <tr style="vertical-align: middle; text-align: left" >
-                                        <td>Name</td>
-                                        <td>
-                                            <input v-model="playerNameUpdate" placeholder="String" style="text-align: center" :value="playerNameUpdate">
-                                        </td>
-                                        <td></td>
                                         <td>Name</td>
                                         <select v-model="playerNameWhereOp" style="vertical-align: middle;" :value="playerNameWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -34,11 +27,6 @@
                                     <tr>
                                     <tr>
                                         <td>Nationality</td>
-                                        <td>
-                                            <input v-model="playerNationalityUpdate" placeholder="String" style="text-align: center" :value="playerNationalityUpdate">
-                                        </td>
-                                        <td></td>
-                                        <td>Nationality</td>
                                         <select v-model="playerNationalityWhereOp" style="vertical-align: middle;" :value="playerNationalityWhereOp">
                                             <option disabled value=" ">Select One</option>
                                             <option>=</option>
@@ -50,17 +38,6 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Position</td>
-                                        <td>
-                                            <select v-model="playerPositionUpdate" style="vertical-align: middle;" :value="playerPositionUpdate">
-                                                <option disabled value=" ">Select One</option>
-                                                <option>Goalkeeper</option>
-                                                <option>Defender</option>
-                                                <option>Midfielder</option>
-                                                <option>Forward</option>
-                                            </select>
-                                        </td>
-                                        <td></td>
                                         <td>Position</td>
                                         <select v-model="playerPositionWhereOp" style="vertical-align: middle;" :value="playerPositionWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -80,11 +57,6 @@
                                     </tr>
                                     <tr>
                                         <td>Number of Goals</td>
-                                        <td>
-                                            <input v-model="playerGoalsUpdate" placeholder="Integer" style="text-align: center" :value="playerGoalsUpdate">
-                                        </td>
-                                        <td></td>
-                                        <td>Number of Goals</td>
                                         <select v-model="playerGoalsWhereOp" style="vertical-align: middle;" :value="playerGoalsWhereOp">
                                             <option disabled value=" ">Select One</option>
                                             <option>=</option>
@@ -97,15 +69,6 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Dominant Foot</td>
-                                        <td>
-                                            <select v-model="playerFootUpdate" style="vertical-align: middle;" :value="playerFootUpdate">
-                                                <option disabled value=" ">Select One</option>
-                                                <option>Left</option>
-                                                <option>Right</option>
-                                            </select>
-                                        </td>
-                                        <td></td>
                                         <td>Dominant Foot</td>
                                         <select v-model="playerFootWhereOp" style="vertical-align: middle;" :value="playerFootWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -123,11 +86,6 @@
                                     </tr>
                                     <tr>
                                         <td>Weight</td>
-                                        <td>
-                                            <input v-model="playerWeightUpdate" placeholder="in kg" style="text-align: center" :value="playerWeightUpdate">
-                                        </td>
-                                        <td></td>
-                                        <td>Weight</td>
                                         <select v-model="playerWeightWhereOp" style="vertical-align: middle;" :value="playerWeightWhereOp">
                                             <option disabled value=" ">Select One</option>
                                             <option>=</option>
@@ -140,11 +98,6 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Height</td>
-                                        <td>
-                                            <input v-model="playerHeightUpdate" placeholder="in cm" style="text-align: center" :value="playerHeightUpdate">
-                                        </td>
-                                        <td></td>
                                         <td>Height</td>
                                         <select v-model="playerHeightWhereOp" style="vertical-align: middle;" :value="playerHeightWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -170,18 +123,11 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <td colspan="2">Attributes to update:</td>
-                                        <td style="padding-right: 20px;"></td>
-                                        <td colspan="4">For stadiums with following characteristics:</td>
+                                        <td>Delete stadiums with following characteristics:</td>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 12px;">
                                     <tr style="vertical-align: middle; text-align: left" >
-                                        <td>Name</td>
-                                        <td>
-                                            <input v-model="stadiumNameUpdate" placeholder="String" style="text-align: center" :value="stadiumNameUpdate">
-                                        </td>
-                                        <td></td>
                                         <td>Name</td>
                                         <select v-model="stadiumNameWhereOp" style="vertical-align: middle;" :value="stadiumNameWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -195,11 +141,6 @@
                                     <tr>
                                     <tr>
                                         <td>City</td>
-                                        <td>
-                                            <input v-model="stadiumCityUpdate" placeholder="String" style="text-align: center" :value="stadiumCityUpdate">
-                                        </td>
-                                        <td></td>
-                                        <td>City</td>
                                         <select v-model="stadiumCityWhereOp" style="vertical-align: middle;" :value="stadiumCityWhereOp">
                                             <option disabled value=" ">Select One</option>
                                             <option>=</option>
@@ -211,11 +152,6 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Capacity</td>
-                                        <td>
-                                            <input v-model="stadiumCapacityUpdate" placeholder="Integer" style="text-align: center" :value="stadiumCapacityUpdate">
-                                        </td>
-                                        <td></td>
                                         <td>Capacity</td>
                                         <select v-model="stadiumCapacityWhereOp" style="vertical-align: middle;" :value="stadiumCapacityWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -241,18 +177,11 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <td colspan="2">Attributes to update:</td>
-                                        <td style="padding-right: 20px;"></td>
-                                        <td colspan="4">For managers with following characteristics:</td>
+                                        <td>Delete managers with following characteristics:</td>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 12px;">
                                     <tr style="vertical-align: middle; text-align: left" >
-                                        <td>Name</td>
-                                        <td>
-                                            <input v-model="managerNameUpdate" placeholder="String" style="text-align: center" :value="managerNameUpdate">
-                                        </td>
-                                        <td></td>
                                         <td>Name</td>
                                         <select v-model="managerNameWhereOp" style="vertical-align: middle;" :value="managerNameWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -265,11 +194,6 @@
                                         </td>
                                     <tr>
                                     <tr>
-                                        <td>Nationality</td>
-                                        <td>
-                                            <input v-model="managerNationalityUpdate" placeholder="String" style="text-align: center" :value="managerNationalityUpdate">
-                                        </td>
-                                        <td></td>
                                         <td>Nationality</td>
                                         <select v-model="managerNationalityWhereOp" style="vertical-align: middle;" :value="managerNationalityWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -294,18 +218,11 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <td colspan="2">Attributes to update:</td>
-                                        <td style="padding-right: 20px;"></td>
-                                        <td colspan="4">For leagues with following characteristics:</td>
+                                        <td>Delete leagues with following characteristics:</td>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 12px;">
                                     <tr style="vertical-align: middle; text-align: left" >
-                                        <td>Name</td>
-                                        <td>
-                                            <input v-model="leagueNameUpdate" placeholder="String" style="text-align: center" :value="leagueNameUpdate">
-                                        </td>
-                                        <td></td>
                                         <td>Name</td>
                                         <select v-model="leagueNameWhereOp" style="vertical-align: middle;" :value="leagueNameWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -318,11 +235,6 @@
                                         </td>
                                     <tr>
                                     <tr>
-                                        <td>Country</td>
-                                        <td>
-                                            <input v-model="leagueCountryUpdate" placeholder="String" style="text-align: center" :value="leagueCountryUpdate">
-                                        </td>
-                                        <td></td>
                                         <td>Country</td>
                                         <select v-model="leagueCountryWhereOp" style="vertical-align: middle;" :value="leagueCountryWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -347,18 +259,11 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <td colspan="2">Attributes to update:</td>
-                                        <td style="padding-right: 20px;"></td>
-                                        <td colspan="4">For teams with following characteristics:</td>
+                                        <td>Delete teams with following characteristics:</td>
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 12px;">
                                     <tr style="vertical-align: middle; text-align: left" >
-                                        <td>Name</td>
-                                        <td>
-                                            <input v-model="teamNameUpdate" placeholder="String" style="text-align: center" :value="teamNameUpdate">
-                                        </td>
-                                        <td></td>
                                         <td>Name</td>
                                         <select v-model="teamNameWhereOp" style="vertical-align: middle;" :value="teamNameWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -372,11 +277,6 @@
                                     <tr>
                                     <tr>
                                         <td>City</td>
-                                        <td>
-                                            <input v-model="teamCityUpdate" placeholder="String" style="text-align: center" :value="teamCityUpdate">
-                                        </td>
-                                        <td></td>
-                                        <td>City</td>
                                         <select v-model="teamCityWhereOp" style="vertical-align: middle;" :value="teamCityWhereOp">
                                             <option disabled value=" ">Select One</option>
                                             <option>=</option>
@@ -388,11 +288,6 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Number of Trophies</td>
-                                        <td>
-                                            <input v-model="teamTrophiesUpdate" placeholder="Integer" style="text-align: center" :value="teamTrophiesUpdate">
-                                        </td>
-                                        <td></td>
                                         <td>Number of Trophies</td>
                                         <select v-model="teamTrophiesWhereOp" style="vertical-align: middle;" :value="teamTrophiesWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -407,11 +302,6 @@
                                     </tr>
                                     <tr>
                                         <td>Since</td>
-                                        <td>
-                                            <input v-model="teamSinceUpdate" placeholder="YYYY" style="text-align: center" :value="teamSinceUpdate">
-                                        </td>
-                                        <td></td>
-                                        <td>Since</td>
                                         <select v-model="teamSinceWhereOp" style="vertical-align: middle;" :value="teamSinceWhereOp">
                                             <option disabled value=" ">Select One</option>
                                             <option>=</option>
@@ -424,11 +314,6 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Stadium Name</td>
-                                        <td>
-                                            <input v-model="teamStadiumUpdate" placeholder="String" style="text-align: center" :value="teamStadiumUpdate">
-                                        </td>
-                                        <td></td>
                                         <td>Stadium Name</td>
                                         <select v-model="teamStadiumWhereOp" style="vertical-align: middle;" :value="teamStadiumWhereOp">
                                             <option disabled value=" ">Select One</option>
@@ -453,18 +338,11 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <td colspan="2">Attributes to update:</td>
-                                    <td style="padding-right: 20px;"></td>
-                                    <td colspan="4">For matches with following characteristics:</td>
+                                    <td>Delete matches with following characteristics:</td>
                                 </tr>
                             </thead>
                             <tbody style="font-size: 12px;">
                                 <tr style="vertical-align: middle; text-align: left" >
-                                    <td>Date</td>
-                                    <td>
-                                        <input v-model="matchDateUpdate" placeholder="YYYY-MM-DD" style="text-align: center" :value="matchDateUpdate">
-                                    </td>
-                                    <td></td>
                                     <td>Date</td>
                                     <select v-model="matchDateWhereOp" style="vertical-align: middle;" :value="matchDateWhereOp">
                                         <option disabled value=" ">Select One</option>
@@ -477,11 +355,6 @@
                                     </td>
                                 <tr>
                                 <tr>
-                                    <td>Referee</td>
-                                    <td>
-                                        <input v-model="matchRefereeUpdate" placeholder="String" style="text-align: center" :value="matchRefereeUpdate">
-                                    </td>
-                                    <td></td>
                                     <td>Referee</td>
                                     <select v-model="matchRefereeWhereOp" style="vertical-align: middle;" :value="matchRefereeWhereOp">
                                         <option disabled value=" ">Select One</option>
@@ -513,13 +386,6 @@
 export default {
   playerData () {
     return {
-      playerNameUpdate: '',
-      playerNationalityUpdate: '',
-      playerPositionUpdate: '',
-      playerGoalsUpdate: '',
-      playerFootUpdate: '',
-      playerWeightUpdate: '',
-      playerHeightUpdate: '',
       playerNameWhere: '',
       playerNationalityWhere: '',
       playerPositionWhere: '',
@@ -539,9 +405,6 @@ export default {
 
   stadiumData () {
     return {
-      stadiumNameUpdate: '',
-      stadiumCityUpdate: '',
-      stadiumCapacityUpdate: '',
       stadiumNameWhere: '',
       stadiumCityWhere: '',
       stadiumCapacityWhere: '',
@@ -553,8 +416,6 @@ export default {
 
   managerData () {
     return {
-      managerNameUpdate: '',
-      managerNationalityUpdate: '',
       managerNameWhere: '',
       managerNationalityWhere: '',
       managerNameWhereOp: '',
@@ -564,8 +425,6 @@ export default {
 
   leagueData () {
     return {
-      leagueNameUpdate: '',
-      leagueCountryUpdate: '',
       leagueNameWhere: '',
       leagueCountryWhere: '',
       leagueNameWhereOp: '',
@@ -575,11 +434,6 @@ export default {
 
   teamData () {
     return {
-      teamNameUpdate: '',
-      teamCityUpdate: '',
-      teamTrophiesUpdate: '',
-      teamSinceUpdate: '',
-      teamStadiumUpdate: '',
       teamNameWhere: '',
       teamCityWhere: '',
       teamTrophiesWhere: '',
@@ -595,8 +449,6 @@ export default {
 
   matchData () {
     return {
-      matchDateUpdate: '',
-      matchRefereeUpdate: '',
       matchDateWhere: '',
       matchRefereeWhere: '',
       matchDateWhereOp: '',
@@ -607,63 +459,6 @@ export default {
   methods: {
     submitPlayer () {
       let self = this
-
-      const attributes = []
-      if (self.playerNameUpdate !== undefined) {
-        attributes.push({
-          key: 'name',
-          value: self.playerName,
-          dataType: 'string'
-        })
-      }
-
-      if (self.playerNationalityUpdate !== undefined) {
-        attributes.push({
-          key: 'nationality',
-          value: self.playerNationalityUpdate,
-          dataType: 'string'
-        })
-      }
-
-      if (self.playerPositionUpdate !== undefined) {
-        attributes.push({
-          key: 'position',
-          value: self.playerPositionUpdate,
-          dataType: 'string'
-        })
-      }
-
-      if (self.playerGoalsUpdate !== undefined) {
-        attributes.push({
-          key: 'num_goals',
-          value: self.playerGoalsUpdate,
-          dataType: 'number'
-        })
-      }
-
-      if (self.playerFootUpdate !== undefined) {
-        attributes.push({
-          key: 'dominant_foot',
-          value: self.playerFootUpdate,
-          dataType: 'string'
-        })
-      }
-
-      if (self.playerWeightUpdate !== undefined) {
-        attributes.push({
-          key: 'weight',
-          value: self.playerWeightUpdate,
-          dataType: 'number'
-        })
-      }
-
-      if (self.playerHeightUpdate !== undefined) {
-        attributes.push({
-          key: 'height',
-          value: self.playerHeightUpdate,
-          dataType: 'number'
-        })
-      }
 
       const conditions = []
       if (self.playerNameWhere !== undefined) {
@@ -729,9 +524,8 @@ export default {
         })
       }
 
-      axios.post('/api/update', {
+      axios.post('/api/delete', {
         tables: ['player'],
-        attributes,
         conditions
       }).then((result) => {
         alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
@@ -742,31 +536,6 @@ export default {
 
     submitStadium () {
       let self = this
-
-      const attributes = []
-      if (self.stadiumNameUpdate !== undefined) {
-        attributes.push({
-          key: 'name',
-          value: self.stadiumNameUpdate,
-          dataType: 'string'
-        })
-      }
-
-      if (self.stadiumCityUpdate !== undefined) {
-        attributes.push({
-          key: 'city',
-          value: self.stadiumCityUpdate,
-          dataType: 'string'
-        })
-      }
-
-      if (self.stadiumCapacityUpdate !== undefined) {
-        attributes.push({
-          key: 'capacity',
-          value: self.stadiumCapacityUpdate,
-          dataType: 'number'
-        })
-      }
 
       const conditions = []
       if (self.stadiumNameWhere !== undefined) {
@@ -796,9 +565,8 @@ export default {
         })
       }
 
-      axios.post('/api/update', {
+      axios.post('/api/delete', {
         tables: ['stadium'],
-        attributes,
         conditions
       }).then((result) => {
         alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
@@ -809,23 +577,6 @@ export default {
 
     submitManager () {
       let self = this
-
-      const attributes = []
-      if (self.managerNameUpdate !== undefined) {
-        attributes.push({
-          key: 'name',
-          value: self.managerNameUpdate,
-          dataType: 'string'
-        })
-      }
-
-      if (self.managerNationalityUpdate !== undefined) {
-        attributes.push({
-          key: 'nationality',
-          value: self.managerNationalityUpdate,
-          dataType: 'string'
-        })
-      }
 
       const conditions = []
       if (self.managerNameWhere !== undefined) {
@@ -846,9 +597,8 @@ export default {
         })
       }
 
-      axios.post('/api/update', {
+      axios.post('/api/delete', {
         tables: ['manager'],
-        attributes,
         conditions
       }).then((result) => {
         alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
@@ -859,23 +609,6 @@ export default {
 
     submitLeague () {
       let self = this
-
-      const attributes = []
-      if (self.leagueNameUpdate !== undefined) {
-        attributes.push({
-          key: 'name',
-          value: self.leagueNameUpdate,
-          dataType: 'string'
-        })
-      }
-
-      if (self.leagueCountryUpdate !== undefined) {
-        attributes.push({
-          key: 'country',
-          value: self.leagueCountryUpdate,
-          dataType: 'string'
-        })
-      }
 
       const conditions = []
       if (self.leagueNameWhere !== undefined) {
@@ -896,9 +629,8 @@ export default {
         })
       }
 
-      axios.post('/api/update', {
+      axios.post('/api/delete', {
         tables: ['league'],
-        attributes,
         conditions
       }).then((result) => {
         alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
@@ -909,47 +641,6 @@ export default {
 
     submitTeam () {
       let self = this
-
-      const attributes = []
-      if (self.teamNameUpdate !== undefined) {
-        attributes.push({
-          key: 'name',
-          value: self.teamNameUpdate,
-          dataType: 'string'
-        })
-      }
-
-      if (self.teamCityUpdate !== undefined) {
-        attributes.push({
-          key: 'city',
-          value: self.teamCityUpdate,
-          dataType: 'string'
-        })
-      }
-
-      if (self.teamTrophiesUpdate !== undefined) {
-        attributes.push({
-          key: 'num_trophies',
-          value: self.teamTrophiesUpdate,
-          dataType: 'number'
-        })
-      }
-
-      if (self.teamSinceUpdate !== undefined) {
-        attributes.push({
-          key: 'since',
-          value: self.teamSinceUpdate,
-          dataType: 'number'
-        })
-      }
-
-      if (self.teamStadiumUpdate !== undefined) {
-        attributes.push({
-          key: 'stadium_name',
-          value: self.teamStadiumUpdate,
-          dataType: 'string'
-        })
-      }
 
       const conditions = []
       if (self.teamNameWhere !== undefined) {
@@ -997,9 +688,8 @@ export default {
         })
       }
 
-      axios.post('/api/update', {
+      axios.post('/api/delete', {
         tables: ['team'],
-        attributes,
         conditions
       }).then((result) => {
         alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
@@ -1010,23 +700,6 @@ export default {
 
     submitMatch () {
       let self = this
-
-      const attributes = []
-      if (self.matchDateUpdate !== undefined) {
-        attributes.push({
-          key: 'date',
-          value: self.matchDateUpdate,
-          dataType: 'string'
-        })
-      }
-
-      if (self.matchRefereeUpdate !== undefined) {
-        attributes.push({
-          key: 'referee',
-          value: self.matchRefereeUpdate,
-          dataType: 'string'
-        })
-      }
 
       const conditions = []
       if (self.matchDateWhere !== undefined) {
@@ -1047,9 +720,8 @@ export default {
         })
       }
 
-      axios.post('/api/update', {
+      axios.post('/api/delete', {
         tables: ['match'],
-        attributes,
         conditions
       }).then((result) => {
         alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)

@@ -15,6 +15,9 @@
           <nuxt-link to="/updateData">Update Data</nuxt-link>
         </div>
         <div class="account-container" v-if="this.$store.state.permission == 'admin'">
+          <nuxt-link to="/deleteData">Delete Data</nuxt-link>
+        </div>
+        <div class="account-container" v-if="this.$store.state.permission == 'admin'">
           <nuxt-link to="/users">Users</nuxt-link>
         </div>
         <div class="account-container" v-if="this.$store.state.username">
