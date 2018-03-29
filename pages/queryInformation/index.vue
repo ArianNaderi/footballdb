@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <template>
     <section class="users-view">
         <div class="content">
@@ -7,14 +8,14 @@
                     <div style="margin: 25px 10px;">
                         <span style="vertical-align: middle;">Show the following managers attributes: </span>
                         <div id='example-1'>
-                            <input type="checkbox" id="id" value="ID" v-model="checkedNames">
+                            <input type="checkbox" id="id" value="manager.id" v-model="mancol">
                             <label for="id">Id </label>
-                            <input type="checkbox" id="name" value="Name" v-model="checkedNames">
+                            <input type="checkbox" id="name" value="manager.name" v-model="mancol">
                             <label for="name">Name </label>
-                            <input type="checkbox" id="nationality" value="Nationality" v-model="checkedNames">
+                            <input type="checkbox" id="nationality" value="manager.nationality" v-model="mancol">
                             <label for="nationality">Nationality </label>
                             <br>
-                            <!--<span>Checked names: {{ checkedNames }}</span>-->
+                            <!--<span>Manageratt: {{ mancol }}</span>-->
                         </div>
                         <span style="vertical-align: middle;">who have the following characteristics: </span>
                         <div style="margin: 25px 10px;">
@@ -23,69 +24,61 @@
                                 <tr style="vertical-align: middle; text-align: left" >
                                     <td>Id</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                        <input v-model="manid" placeholder="String" style="text-align: center">
                                     </td>
                                 <tr>
                                 <tr>
                                     <td>Name</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                        <input v-model="manname" placeholder="String" style="text-align: center">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Nationality</td>
                                     <td>
-                                        <input v-model="message" placeholder="String" style="text-align: center">
+                                        <input v-model="mannat" placeholder="String" style="text-align: center">
                                     </td>
                                 </tr>
                                 </thead>
                             </table>
                         </div>
+                        <button class="subheadersection-title" style="vertical-align: middle;" @click="managerQ">Submit</button>
                     </div>
-                    <button class="subheadersection-title" style="vertical-align: middle;">Submit</button>
+                    <span>{{ mans.data }}</span>
+                    <!--<li v-for="(m, index) in mans" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">-->
+                        <!--{{ 'Name: ' + m.name}}-->
+                    <!--</li>-->
                 </div>
                 <div style="margin: 25px 10px;">
                     <div class="subsection-title" style="vertical-align: middle;">Player</div>
                     <div style="margin: 25px 10px;">
                         <span style="vertical-align: middle;">Show the following player attributes: </span>
                         <div id='example-2'>
-                            <input type="checkbox" id="id" value="Id" v-model="checkedNames">
-                            <label for="id">Id </label>
-                            <input type="checkbox" id="name" value="Name" v-model="checkedNames">
+                            <input type="checkbox" id="name" value="player.name" v-model="playcol">
                             <label for="name">Name </label>
-                            <input type="checkbox" id="nationality" value="Nationality" v-model="checkedNames">
+                            <input type="checkbox" id="nationality" value="player.nationality" v-model="playcol">
                             <label for="nationality">Nationality </label>
+                            <input type="checkbox" id="id" value="player.num_goals" v-model="playcol">
+                            <label for="id">Number of Goals </label>
+                            <input type="checkbox" id="id" value="player.id" v-model="playcol">
+                            <label for="id">Id </label>
                             <br>
-                            <!--<span>Checked names: {{ checkedNames }}</span>-->
                         </div>
                         <span style="vertical-align: middle;">Who play for team: </span>
-                        <input v-model="message" placeholder="String" style="text-align: center">
+                        <input v-model="playteam" placeholder="String" style="text-align: center">
                     </div>
-                    <button class="subheadersection-title" style="vertical-align: middle;">Submit</button>
+                    <button class="subheadersection-title" style="vertical-align: middle;" @click="playerQ">Submit</button>
                 </div>
+                <span>{{ plays.data }}</span>
+                <!--<li v-for="(p, index) in plays" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">-->
+                    <!--{{ 'Name: ' + p.name}}-->
+                <!--</li>-->
                 <div style="margin: 25px 10px;">
                     <div class="subsection-title" style="vertical-align: middle;">Team</div>
                     <div style="margin: 25px 10px;">
-                        <span style="vertical-align: middle;">Show the following team attributes: </span>
-                        <div id='example-2'>
-                            <input type="checkbox" id="id" value="name" v-model="data.team">
-                            <label for="id">name </label>
-                            <input type="checkbox" id="name" value="city" v-model="data.team">
-                            <label for="name">city </label>
-                            <input type="checkbox" id="nationality" value="num_trophies" v-model="data.team">
-                            <label for="nationality">number of trophies </label>
-                            <input type="checkbox" id="nationality" value="since" v-model="data.team">
-                            <label for="nationality">date founded </label>
-                            <input type="checkbox" id="nationality" value="stadium_name" v-model="data.team">
-                            <label for="nationality">stadium </label>
-                            <br>
-                            <span>attriubutes: {{ data.team }}</span>
-                        </div>
+                        <span style="vertical-align: middle;">Teams that have not lost a home game this year: </span>
                     </div>
-                    <div style="margin: 25px 10px;">
-                        <span style="vertical-align: middle;">Show teams that have not lost a home game this year: </span>
-                    </div>
-                    <nuxt-link class="button--grey" style="padding: 5px 20px; text-decoration: none;" params="{user.name}" to="/queryinformation/team">Submit</nuxt-link>
+                    <nuxt-link class="button--grey" style="padding: 5px 20px; text-decoration: none;" params="{user.name}" to="/queryinformation/team">Show</nuxt-link>
                 </div>
                 <div style="margin: 25px 10px;">
                     <div class="subsection-title" style="vertical-align: middle;">Stadium</div>
@@ -113,14 +106,75 @@
 import axios from '~/plugins/axios'
 
 export default {
-  async asyncData () {
-    let { data } = await axios.get('/api/users')
-    return { teams: data }
-  },
 
   data () {
-    return {data: {team: []}}
+    return {mans: [], plays: [], team: [], mancol: [], playcol: [], manid: '', manname: '', mannat: '', playteam: ''}
   },
+
+  methods: {
+    managerQ () {
+      let self = this
+
+      const conditions = []
+      if (self.manid !== undefined && self.manid !== '') {
+        conditions.push({
+          table: 'manager',
+          key: 'id',
+          value: self.manid,
+          operator: '='
+        })
+      }
+      if (self.manname !== undefined && self.manname !== '') {
+        conditions.push({
+          table: 'manager',
+          key: 'name',
+          value: self.manname,
+          operator: '='
+        })
+      }
+      if (self.mannat !== undefined && self.mannat !== '') {
+        conditions.push({
+          table: 'manager',
+          key: 'nationality',
+          value: self.mannat,
+          operator: '='
+        })
+      }
+
+      axios.post('/api/singleTable', {
+        tables: ['manager'],
+        columns: self.mancol,
+        conditions
+      }).then((result) => {
+        self.mans = result
+      }).catch((result) => {
+        alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+      })
+    },
+
+    playerQ () {
+      let self = this
+
+      const conditions = []
+      if (self.playteam !== undefined && self.playteam !== '') {
+        conditions.push({
+          table: 'team',
+          key: 'name',
+          value: self.playteam,
+          operator: '='
+        })
+      }
+
+      axios.post('/api/join', {
+        tables: ['player', 'team'],
+        columns: self.playcol,
+        conditions
+      }).then((result) => {
+        self.plays = result
+      }).catch((result) => {
+        alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+      })
+    }},
 
   head () {
     return {
