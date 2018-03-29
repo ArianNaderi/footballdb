@@ -6,16 +6,16 @@
           <img class="logo" src="~/assets/img/happy.png" alt="logo">
         </router-link>
         <div class="account-container" v-if="this.$store.state.permission == 'user' || this.$store.state.permission == 'admin'">
-          <nuxt-link to="/queryInformation">Query Data</nuxt-link>
+          <nuxt-link to="/queryInformation">Query</nuxt-link>
         </div>
         <div class="account-container" v-if="this.$store.state.permission == 'admin'">
-          <nuxt-link to="/insertData">Insert Data</nuxt-link>
+          <nuxt-link to="/insertData">Insert</nuxt-link>
         </div>
         <div class="account-container" v-if="this.$store.state.permission == 'admin'">
-          <nuxt-link to="/updateData">Update Data</nuxt-link>
+          <nuxt-link to="/updateData">Update</nuxt-link>
         </div>
         <div class="account-container" v-if="this.$store.state.permission == 'admin'">
-          <nuxt-link to="/deleteData">Delete Data</nuxt-link>
+          <nuxt-link to="/deleteData">Delete</nuxt-link>
         </div>
         <div class="account-container" v-if="this.$store.state.permission == 'admin'">
           <nuxt-link to="/users">Users</nuxt-link>

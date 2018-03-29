@@ -44,10 +44,15 @@
                         </div>
                         <button class="subheadersection-title" style="vertical-align: middle;" @click="managerQ">Submit</button>
                     </div>
-                    <span>{{ mans.data }}</span>
-                    <!--<li v-for="(m, index) in mans" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">-->
-                        <!--{{ 'Name: ' + m.name}}-->
-                    <!--</li>-->
+                    <ul>
+                        <li v-for="(m, index) in mans.data" :key="index">
+                            <ul>
+                                <li v-for="(attr, index) in Object.keys(m)" :key="index" style="display:inline-block; padding-right: 10px;">
+                                    {{ `${attr.charAt(0).toUpperCase() + attr.slice(1)}: ${m[attr]}`}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
                 <div style="margin: 25px 10px;">
                     <div class="subsection-title" style="vertical-align: middle;">Player</div>
@@ -69,10 +74,15 @@
                     </div>
                     <button class="subheadersection-title" style="vertical-align: middle;" @click="playerQ">Submit</button>
                 </div>
-                <span>{{ plays.data }}</span>
-                <!--<li v-for="(p, index) in plays" :key="index" style="padding: 10px 20px; margin: 0 25px; position: relative;">-->
-                    <!--{{ 'Name: ' + p.name}}-->
-                <!--</li>-->
+                <ul>
+                    <li v-for="(m, index) in plays.data" :key="index">
+                        <ul>
+                            <li v-for="(attr, index) in Object.keys(m)" :key="index" style="display:inline-block; padding-right: 10px;">
+                                {{ `${attr.charAt(0).toUpperCase() + attr.slice(1)}: ${m[attr]}`}}
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
                 <div style="margin: 25px 10px;">
                     <div class="subsection-title" style="vertical-align: middle;">Team</div>
                     <div style="margin: 25px 10px;">
@@ -148,7 +158,7 @@ export default {
       }).then((result) => {
         self.mans = result
       }).catch((result) => {
-        alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+        alert('Code: ' + result.response.data.code + ' ' + 'Message: ' + result.response.data.message)
       })
     },
 
@@ -172,7 +182,7 @@ export default {
       }).then((result) => {
         self.plays = result
       }).catch((result) => {
-        alert('Code: ' + result.data.code + ' ' + 'Message: ' + result.data.message)
+        alert('Code: ' + result.response.data.code + ' ' + 'Message: ' + result.response.data.message)
       })
     }},
 
