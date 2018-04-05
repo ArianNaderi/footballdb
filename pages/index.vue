@@ -3,10 +3,10 @@
     <div>
     <Logo />
       <h1 class="title">
-        CPSC 304 Project
+        FOOTBALL DB
       </h1>
       <h2>
-        A Project by Arian, Atsushi, Jayvardhana, Tunir
+        by Arian, Atsushi, Jayvardhana, Tunir
       </h2>
     </div>
   </section>

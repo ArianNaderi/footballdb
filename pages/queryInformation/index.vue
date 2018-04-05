@@ -59,14 +59,22 @@
                     <div style="margin: 25px 10px;">
                         <span style="vertical-align: middle;">Show the following player attributes: </span>
                         <div id='example-2'>
+                            <input type="checkbox" id="id" value="player.id" v-model="playcol">
+                            <label for="id">Id </label>
                             <input type="checkbox" id="name" value="player.name" v-model="playcol">
                             <label for="name">Name </label>
                             <input type="checkbox" id="nationality" value="player.nationality" v-model="playcol">
                             <label for="nationality">Nationality </label>
+                            <input type="checkbox" id="id" value="player.position" v-model="playcol">
+                            <label for="id">Position </label>
                             <input type="checkbox" id="id" value="player.num_goals" v-model="playcol">
                             <label for="id">Number of Goals </label>
-                            <input type="checkbox" id="id" value="player.id" v-model="playcol">
-                            <label for="id">Id </label>
+                            <input type="checkbox" id="id" value="player.dominant_foot" v-model="playcol">
+                            <label for="id">Dominant Foot </label>
+                            <input type="checkbox" id="id" value="player.weight" v-model="playcol">
+                            <label for="id">Weight </label>
+                            <input type="checkbox" id="id" value="player.height" v-model="playcol">
+                            <label for="id">Weight </label>
                             <br>
                         </div>
                         <span style="vertical-align: middle;">Who play for team: </span>
